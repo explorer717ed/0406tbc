@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Document</title>
+    <link rel="stylesheet" href="cssreset.css">
+    <style>
+        .box{
+            background: navajowhite;
+            height: 100vh;
+
+        }
+
+
+        .gameFea{
+            position: relative;
+            background: #77d2d2;
+            padding-top: 100px;
+        }
+        .feaDesc{
+            width: 20%;
+            background: gold;
+            padding: 30px 20px;
+            margin-bottom: 500px;
+            margin-left: 60%;
+            transition: 0.5s cubic-bezier(.61,1.23,.91,1.24);
+            transform: translateX(0%) scale(0.8);
+            opacity: 0;
+        }
+
+        /* 說明框跳出 */
+        .slideLeft{
+            transform: translateX(20%) scale(1);
+
+            opacity: 1;
+        }
+        /* 手機及螢幕畫面 */
+        .phone{
+            position: relative;
+            width: 15%;
+            margin: auto;
+            transition-duration: 0.5s; 
+            padding-top: 29.804687%;
+            /* display: none; */
+            transform: scale(1.5)
+        }
+        .iX{
+            position: absolute;
+            top: -5.9%;
+            left: -6.5%;
+            width: 113%;
+        }
+        .screenMask{
+            position: absolute;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+        .screenMask img{
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            transition-duration: 1s;
+        }
+        /* 處理螢幕畫面動畫 */
+        .feaMsgScreen{opacity: 1;}
+        .feaVrScreen,.feaVrDia{opacity: 1;z-index: -1;}
+        .feaMindDia{opacity: 0;}
+        .feaCafeScreen{opacity: 0;}
+        .feaShopScreen{opacity: 0;}
+
+        .feaMsgScreen.aniMsgScreen{
+            opacity: 1;
+            transform: translateX(-50%) translateY(-160%);
+        }
+
+
+        /* 手機固定位置  可是iphone好像不能用*/
+        .phone.phoneFix{
+            position: -webkit-sticky;
+            position: sticky;
+            top: 10%;
+            left: 0;
+            right: 0;
+        }
+        
+        .test{
+            background: honeydew;
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+    <div class="test"></div>
+    <div class="box">banner</div>
+    <div class="box">story</div>
+    <div class="box">charactor</div>
+    <div class="gameFea">
+        <h3 id="feaTitle">遊戲特色</h3>
+            <div class="phone">
+                <div class="screenMask">
+                    <img src="img/feaMsg.png" alt="用訊息隨時與他互動" class="feaMsgScreen">
+                    <img src="img/feaVr.png" alt="左右移動視線" class="feaVrScreen">
+                    <img src="img/feaVr-1.png" class="feaVrDia" alt="對話：是否有心事">
+                    <img src="img/feaMind-1.png" class="feaMindDia" alt="對話選項：是否有心事">
+                    <img src="img/feaCafe.png" alt="小遊戲獲得零用錢" class="feaCafeScreen">
+                    <img src="img/feaShop.png" alt="禮物傳達妳的心意" class="feaShopScreen">
+                </div>
+                <img src="img/iX.png" alt="iphone" class="iX">
+            </div>
+        <div class="feaDesc featureMsg">
+                透過手機內的訊息工具，
+                營造出隨時與他互動的感覺
+                與他交談的機會不僅限於會面。
+                見不到面時，可以透過遊戲內的訊息工具與他交換各種不同的對話。
+                通過互傳訊息，可以了解到會面中無從得知的他的想法，妳也可以把自己真實的一面傳達給他。
+                如此一來，他會對妳是怎麼樣的人有更深一層的認識。
+                透過這些無關緊要的閒聊，可以清楚「感受」透過這些無關緊要的閒聊可以清楚...
+        </div>
+        <div class="feaDesc featureVr">
+                他將對 妳的視線 有所反應
+                透過移動妳的視線來對他表達妳的感情。
+                如果在會面與他談話當中出現的符號，請左右移動智慧型裝置看看。
+                螢幕面向哪裡，代表妳的視線移到哪裡，請傳達妳最真實的心情讓他知道吧。
+        </div>
+        <div class="feaDesc featureMind">
+                妳的話語將持續 留在他的心裡
+                在與他對話的過程中，他將透過妳所選的選項，加深對「妳」的瞭解。累積多次談話後，他將越來越了解「妳真實的個性」。所以請用妳最實在的話語與心意，縮短與他之間的距離吧。
+        </div>
+        <div class="feaDesc featureCafe">
+                透過小遊戲，打工賺取零用錢
+                遊戲內進行打工小遊戲，並賺取零用錢(遊戲內虛擬貨幣)，並使用零用錢購買禮物送他，及其他可觸發特殊劇情之道具。
+        </div>
+        <div class="feaDesc featureShop">
+                購買禮物將妳的心意傳達給他
+                將道具當成「禮物」送給他，會收到他傳來的感謝訊息。
+                配合每個角色的喜好購買禮物或特殊道具，將可觸發隱藏劇情。
+        </div>
+    </div>
+    <div class="box download">download</div>
+    <div class="box">footer</div>
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+
+$(document).ready(function(){
+
+    // 測試每個區塊到最上方的距離
+    $('#feaTitle').append($('#feaTitle').offset().top);
+    $('.featureMsg').append($('.featureMsg').offset().top);
+    $('.featureVr').append($('.featureVr').offset().top);
+    $('.featureMind').append($('.featureMind').offset().top);
+    $('.featureCafe').append($('.featureCafe').offset().top);
+    $('.featureShop').append($('.featureShop').offset().top);
+    $(window).scroll(function(){
+        $('.test').text($('.phone').offset().top)
+    })
+
+    
+    $(window).scroll(function(){
+
+    //固定手機位置
+        // 取得目前卷軸位置、遊戲特色、下載區塊至文件最上方的距離
+        var curPos = $(window).scrollTop();
+        var gameFeaPos = $('.gameFea').offset().top;
+        var downPos = $('.download').offset().top;
+        // 固定手機
+        if(curPos<gameFeaPos){
+            $('.phone').removeClass('phoneFix');
+        }else if(curPos<downPos){
+            $('.phone').addClass('phoneFix');
+        }else if(curPos>downPos){
+            $('.phone').removeClass('phoneFix');
+        }
+
+        var winHei = $(window).height();
+    //遊戲說明框跳出
+        //目前畫面底部的位置(不取最下方)
+        var curPosB = (winHei*0.7)+curPos;
+        //每個對話框的動作
+        $('.feaDesc').each(function(){
+            //對話框上下距文件頂端的距離
+            var descPos = $(this).offset().top;
+            var descHei = $(this).outerHeight();
+            var descPosBot = descPos + descHei;
+
+            //每個對話框分開加入class(對話框頂<畫面底、對話框底>畫面頂)
+            if(descPos <= curPosB && descPosBot >= curPos){
+                $(this).addClass('slideLeft');
+            }
+        })
+    
+    //手機螢幕切換
+        //取得對話框減一個視窗高的位置
+        var msgDescPos = $('.featureMsg').offset().top - winHei*0.8;
+        var vrDescPos = $('.featureVr').offset().top - winHei*0.8;
+        var mindDescPos = $('.featureMind').offset().top - winHei*0.8;
+        var cafeDescPos = $('.featureCafe').offset().top - winHei*0.8;
+        var shopDescPos = $('.featureShop').offset().top - winHei*0.8; 
+        // alert(msgDescPos);
+
+        //畫面隨卷軸高度切換
+        if(curPos <= vrDescPos){
+            $('.feaMsgScreen').removeClass('aniMsgScreen');
+        }else if(curPos > vrDescPos && curPos <= mindDescPos){
+            $('.screenMask img').css('opacity',0);
+            $('.feaMsgScreen').addClass('aniMsgScreen')
+            $('.feaVrDia,.feaVrScreen,.feaMsgScreen').css('opacity',1);
+        }else if(curPos > mindDescPos && curPos <= cafeDescPos){
+            $('.screenMask img').css('opacity',0);
+            $('.feaMindDia,.feaVrScreen').css('opacity',1);
+        }else if(curPos > cafeDescPos && curPos <= shopDescPos){
+            $('.screenMask img').css('opacity',0);
+            $('.feaCafeScreen').css('opacity',1);
+        }else if(curPos > shopDescPos){
+            $('.screenMask img').css('opacity',0);
+            $('.feaShopScreen').css('opacity',1);
+        }
+
+
+
+
+
+    })
+
+
+
+    
+
+
+
+
+})
+    
+    
+    </script>
+</body>
+</html>
