@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>《四月六日 未完待續》遊戲介紹</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="cssreset.css">
+    <link rel="stylesheet" href="common.css">
+    <style>
+        body{
+        background: url(img/desk.jpg) no-repeat fixed;
+        background-size: cover;
+        }
+        
+        /* 選單已選的橘色背景 */
+        .rec{
+            width: 190px;
+            height: 35px;
+            background: rgba(255,163,43,0.8);
+            position: absolute;
+            left: 0;top: 59px;
+            z-index: -1;
+        }
+        .tri{
+            border-top: rgba(255,163,43,0.8) solid 17.5px;
+            border-left: rgba(255,163,43,0.8) solid 17.5px;
+            border-right: rgba(0,0,0,0) solid 17.5px;
+            border-bottom: rgba(0,0,0,0) solid 17.5px;
+            position: absolute;
+            left: 190px;top: 59px;
+            z-index: -1;
+        }
+        /* 故事 */
+        .story{
+            width: 960px; 
+            height: 700px;
+            margin: auto;
+            position: relative;}
+        .subtitle1{
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 4px;
+            padding: 80px 0 0 0;
+        }
+        .text,.subtitle2{margin: 20px 200px ;}
+        .text{
+            font-size: 18px;
+        }
+        .text img{vertical-align: text-top;}
+        .subtitle2{
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* 人物 */
+        .char .title{
+            margin-right: 50%;
+            text-align: right;
+        }
+        .char{
+            position: relative;
+            height: 850px;
+        }
+        .charBg img{
+            position: absolute;
+            width: 75px;
+            bottom: -64px;
+            left: 25px;
+            z-index: -1;
+            transform: rotateZ(80deg);
+        }
+        .char1Link,.char3Link,.char2Link,.char4Link,.char5Link,.char6Link,.char7Link,.char8Link,.char9Link{
+            position: absolute;
+            transform: rotateZ(-90deg);
+            color: rgb(255,249,224);
+            font-size: 24px;
+            transition: 0.2s;
+        }
+        .charBg .on{
+            color: #114d7c
+        }
+        .charBg span{display: inline-block; width: 50px;}
+        .char1Link,.char3Link,.char4Link,.char5Link,.char6Link,.char7Link,.char8Link,.char9Link{bottom: -90px;}
+        .char1Link{left: 40%;}
+        .char2Link{left: 46%;bottom: -110px;}
+        .char3Link{left: 52%;}
+        .char4Link{left: 58%;}
+        .char5Link{left: 64%;}
+        .char6Link{left: 70%;}
+        .char7Link{left: 76%;}
+        .char8Link{left: 82%;}
+        .char9Link{left: 88%;}
+
+        .charBg a:hover{
+            bottom: -100px;
+        }
+        /* 橘 */
+        .nong{
+            position: absolute;
+            top: 80px;left: 0;right: 0;
+            margin: auto;
+            background: url(img/homeCharPaper.png) left top;
+            background-size:cover;
+            width: 710px;
+            height: 500px;
+            padding: 0px 40px;
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+            transform: rotateZ(-2deg)
+        }
+        .name{
+            position: relative;
+            top: -30px;
+            font-size: 24px;}
+        .name strong{font-size: 60px;}
+        .nong .name::before{
+            content: "";
+            display: inline-block;
+            width: 280px;
+            height: 45px;
+            position: absolute;
+            top: 25px;
+            z-index: -1;
+            background: rgba(255, 163, 43, 0.4);
+        }
+        .sample{margin: 0px 0  10px 430px;}
+        .desc{
+            /* color: #114d7c; */
+            font-size: 18px;
+            line-height: 2;
+            letter-spacing: 1px;
+            margin: 15px 0;
+            width: 340px;
+            float: left;
+        }   
+        .char2{
+            width: 260px;
+            position: absolute;
+            right: -70px;
+            bottom: -40px;
+            transform: rotateZ(2deg);
+        }
+        .nongPhoto{width: 100px;}
+
+        /* 遊戲特色 */
+        .feature{
+            height: 750px;
+            width: 1000px;
+            margin: auto;
+            position: relative;
+        }
+        .feature .title{margin-left: 50%}
+        .featureBg{
+            height: 750px;
+            background: url(img/paperLineBlue.png) no-repeat;
+            background-size: 100%;
+            width: 1000px;
+            position:absolute;
+            z-index: -2;
+            transform: rotate(-10deg);
+        }
+        /* 連結標籤 */
+        .feaLink{
+            margin: 70px 20px;
+            position: absolute;
+            top: 120px;
+            left: -70px;
+        }
+        .feaLink li{
+            color: rgb(255,249,224);
+            font-size: 18px;
+            height: 60px;
+            width: 300px;
+            position: relative;
+        }
+        .feaLink img{
+            position: absolute;
+            width: 95%;
+            z-index: -1;   
+            top: -18px;
+            left: -8px;
+        }
+        
+        /* 手機螢幕 */
+        .phone{
+            position: absolute;
+            height: 560px;
+            /* width: 290px; */
+            left: 25%;
+            top: 15%;
+        }
+        .screenMask{
+            /* background: orange; */
+            height: 537px;
+            width: 265px;
+            position: absolute;
+            top: 11px;
+            left: 16px;
+            border-radius: 60px;
+            overflow: hidden;
+        }
+        .screenMask img{
+            position: absolute;
+            margin: auto;
+        }
+        .feaMsgScreen{
+            height: 96%;
+            width: 92%;
+            top: 18px;
+            left: 10px;
+        }
+        .feaVrScreen,.feaMindScreen{
+            height: 95%;
+            top: 19px;
+            left: -115%;
+        }
+        .feaCafeScreen{
+            height: 95%;
+            top: 19px;
+            left: -14px;
+        }
+        .feaShopScreen{
+            height: 99%;
+            top: -5px;
+            left: 11px;
+        }
+        .iX{
+            height: 100%;
+            position: absolute;
+            top: 0;
+        }
+        /* 介紹文字 */
+        .feature strong{font-weight: bold;}
+        .highlight2{
+            color: #114d7c;
+            font-size: 24px;
+            margin: 0 0 10px 0;
+        }
+        .content{
+            color: #114d7c;
+            font-size: 16px;
+        }
+        .featureMsg,.featureVr,.featureMind,.featureCafe,.featureShop{
+            width: 380px;
+            background: rgba(255,249,224,0.8);
+            border-radius: 10px;
+            padding: 20px;
+            letter-spacing: 2px;
+            line-height: 1.5;
+            position: relative;
+            left: 50%;
+            top: 33%;
+            z-index: 1;
+        }
+        /* 下載點 */
+        .download{
+            margin: auto;
+        }
+
+        /* 產品情報 */
+        .detail{
+            background: rgba(0, 39, 69, 0.8);
+            padding: 0 0 100px 0;
+        }
+        .detail section{
+            width: 860px;
+            margin: auto;
+            color:rgba(255,249,224,1);
+            /* padding: 0 600px; */
+        }
+        .detail .title{
+            width: 960px;
+            transform: translateY(-35px);
+            margin: auto;
+        }
+            
+        .detail h3{
+            font-size: 24px;
+            margin: 30px 0 5px 0;
+        }
+        
+        .oran{color: #ffa32b;}
+        .detail .center{
+            text-align: center;
+        }
+        table.price {
+            width: 800px;
+        }
+        table.system{
+            width: 800px;
+            border: solid 1px rgba(51, 84, 106, 1);
+        }
+        table.system td{
+            border: solid 1px rgba(51, 84, 106, 1);
+            background: rgba(0, 39, 69, 0.8);
+            padding: 10px
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="img/logoM.png" alt="Logo" class="logo"></a>
+        <nav>
+            <ul class="menu">
+                <li><a href="info.html">遊戲介紹</a></li>
+                <li><a href="media.html">校園畫展</a></li>
+                <li><a href="news.html">最新消息</a></li>
+                <li><a href="javascript:;">討論區</a></li>
+            </ul>
+            <div class="menuChosen">
+                <div class="rec"></div>
+                <div class="tri"></div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="story">
+            <img src="img/paperCheckLightblue.png" alt="淺藍方格紙" class="storyBg">
+            <article>
+                <p class="subtitle1">
+                    出現在新生活中的九位少年<br>
+                    一段青澀的愛情故事
+                </p>
+                <p class="text">
+                    高二下學期這尷尬的季節<br>
+                    轉學進入NPC高中二年E班的玩家，<br>
+                    尚未適應環境就被分配至校慶活動籌辦小組，<br>
+                    為四月份、NPC年度最盛大的校慶週規劃準備，<br>
+                    籌備小組裡九位不同性格的同學學弟們、還有指導老師，<br>
+                    妳是否能夠融入、並順利完成籌備任務？<br>
+                </p>
+                <p class="subtitle2">
+                    「逐漸累積的情感，<br>
+                    　即使過了四月六日，也不是結束」
+                </p>
+                <p class="text">
+                    在籌備過程中，妳逐漸與他互相了解，<br>
+                    四月六日、校慶最後一天，<br>
+                    是否意味著籌備小組的關係將畫下句點，或是
+                    <img src="img/wordtbc.png" alt="">
+                    ... ?
+                </p>
+            </article>
+        </div>
+        <div class="char" id="char">
+            <div class="charBg">
+                <h2 class="title">人 物</h2>
+                <a href="javascript:;" class="char1Link">
+                    <span>Kun</span>
+                    <img src="img/tagChar.png" alt="Kun">
+                </a>
+                <span class="char2Link on">
+                    <span>Nong</span>
+                    <img src="img/tagChar.png" alt="Nong">
+                </span>
+                <a href="javascript:;" class="char3Link">
+                    <span>Adam</span>
+                    <img src="img/tagChar.png" alt="Adam">
+                </a>
+                <a href="javascript:;" class="char4Link">
+                    <span>Justin</span>
+                    <img src="img/tagChar.png" alt="Justin">
+                </a>
+                <a href="info.html#char" class="char5Link">
+                    <span>Evan</span>
+                    <img src="img/tagChar.png" alt="Evan">
+                </a>
+                <a href="javascript:;" class="char6Link">
+                    <span>Theo</span>
+                    <img src="img/tagChar.png" alt="Theo">
+                </a>
+                <a href="javascript:;" class="char7Link">
+                    <span>L.ghost</span>
+                    <img src="img/tagChar.png" alt="L.ghost">
+                </a>
+                <a href="javascript:;" class="char8Link">
+                    <span>Boogie</span>
+                    <img src="img/tagChar.png" alt="Boogie">
+                </a>
+                <a href="javascript:;" class="char9Link">
+                    <span>Azora</span>
+                    <img src="img/tagChar.png" alt="Yu">
+                </a>
+            </div>
+            <div class="nong">
+                <p class="name">
+                    <strong>Nong </strong>
+                    (CV：濃濃)
+                </p>
+                <img src="img/infoTalk2.png" alt="你不為人知的小秘密...">
+                <div class="btn">
+                        <a href="javascript:;" class="sample">
+                            <i class="material-icons">volume_up</i>
+                            試聽
+                        </a>
+                </div>
+                <p class="desc">
+                    籌備小組成員、跆拳道社長，<br>
+                    時刻充滿笑容的陽光少年，<br>
+                    與他相處會有種被呵護的感覺
+                    <img src="img/photo21.JPG" alt="Nong1" class="nongPhoto">
+                    <img src="img/photo22.jpg" alt="Nong2" class="nongPhoto">
+                    <img src="img/photo23.JPG" alt="Nong3" class="nongPhoto">
+                </p>
+                <p class="desc">
+                    ■個人資料：<br>
+                    　身分：3年A班學長<br>
+                    　生日：10/3 (18歲) <br>
+                    　身高：183 cm<br>
+                    　體重：65 kg<br>
+                    　擅長科目：跆拳道<br>
+                    　喜歡的食物：牛奶<br>
+                </p>
+                <img src="img/char2.png" alt="Nong" class="char2">
+
+            </div>
+            
+        </div>
+        <div class="feature">
+            <div class="featureBg">
+                <h2 class="title">遊戲特色</h2>
+            </div>
+            <ol class="feaLink">
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色1．用訊息隨時與他互動
+                </li></a>
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色2．VR移動視線
+                </li></a>
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色3．對話反映妳的性格
+                </li></a>
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色4．小遊戲獲得零用錢
+                </li></a>
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色5．禮物傳達妳的心意
+                </li></a>
+            </ol>
+            <div class="phone">
+                <div class="screenMask">
+                    <img src="img/feaMsg.png" alt="訊息通知" class="feaMsgScreen">
+                </div>
+                <img src="img/iX.png" alt="iphone" class="iX">
+            </div>
+            
+            <article class="featureMsg" >
+                <section class="highlight2">
+                    透過手機內的訊息工具，<br>
+                    營造出<strong>隨時與他互動</strong>的感覺
+                </section>
+                <section class="content">
+                    與他交談的機會不僅限於會面。<br>
+                    見不到面時，可以透過遊戲內的訊息工具與他交換各種不同的對話。<br>
+                    通過互傳訊息，可以了解到會面中無從得知的他的想法，妳也可以把自己真實的一面傳達給他。<br>
+                    如此一來，他會對妳是怎麼樣的人有更深一層的認識。<br>
+                    透過這些無關緊要的閒聊，可以清楚「感受」透過這些無關緊要的閒聊可以清楚...
+                </section>
+            </article>            
+        </div>
+        <div class="feature">
+            <div class="featureBg">
+                <h2 class="title">遊戲特色</h2>
+            </div>
+            <ol class="feaLink">
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色1．用訊息隨時與他互動
+                </li></a>
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色2．VR移動視線
+                </li></a>
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色3．對話反映妳的性格
+                </li></a>
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色4．小遊戲獲得零用錢
+                </li></a>
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色5．禮物傳達妳的心意
+                </li></a>
+            </ol>
+            <div class="phone">
+                <div class="screenMask">                    
+                    <img src="img/feaVr.png" alt="左右移動視線" class="feaVrScreen">
+                </div>
+                <img src="img/iX.png" alt="iphone" class="iX">
+            </div>            
+            <article class="featureVr">
+                <section class="highlight2">
+                    他將對
+                    <strong>妳的視線</strong>
+                    有所反應
+                </section>
+                <section class="content">
+                    透過移動妳的視線來對他表達妳的感情。<br>
+                    如果在會面與他談話當中出現的符號，請左右移動智慧型裝置看看。<br>
+                    螢幕面向哪裡，代表妳的視線移到哪裡，請傳達妳最真實的心情讓他知道吧。
+                </section>
+            </article>
+        </div>
+        <div class="feature">
+            <div class="featureBg">
+                <h2 class="title">遊戲特色</h2>
+            </div>
+            <ol class="feaLink">
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色1．用訊息隨時與他互動
+                </li></a>
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色2．VR移動視線
+                </li></a>
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色3．對話反映妳的性格
+                </li></a>
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色4．小遊戲獲得零用錢
+                </li></a>
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色5．禮物傳達妳的心意
+                </li></a>
+            </ol>
+            <div class="phone">
+                <div class="screenMask">
+                    <img src="img/feaMind.png" alt="留在他心裡" class="feaMindScreen">
+                </div>
+                <img src="img/iX.png" alt="iphone" class="iX">
+            </div>
+            <article class="featureMind">
+                <section class="highlight2">
+                    妳的話語將持續
+                    <strong>留在他的心裡</strong>
+                </section>
+                <section class="content">
+                    在與他對話的過程中，他將透過妳所選的選項，加深對「妳」的瞭解。累積多次談話後，他將越來越了解「妳真實的個性」。所以請用妳最實在的話語與心意，縮短與他之間的距離吧。
+                </section>
+            </article>
+        </div>
+        <div class="feature">
+            <div class="featureBg">
+                <h2 class="title">遊戲特色</h2>
+            </div>
+            <ol class="feaLink">
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色1．用訊息隨時與他互動
+                </li></a>
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色2．VR移動視線
+                </li></a>
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色3．對話反映妳的性格
+                </li></a>
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色4．小遊戲獲得零用錢
+                </li></a>
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色5．禮物傳達妳的心意
+                </li></a>
+            </ol>
+            <div class="phone">
+                <div class="screenMask">
+                    <img src="img/feaCafe.png" alt="" class="feaCafeScreen">
+                </div>
+                <img src="img/iX.png" alt="iphone" class="iX">
+            </div>
+            <article class="featureCafe">
+                <section class="highlight2">
+                    透過小遊戲，打工賺取零用錢
+                </section>
+                <section class="content">
+                    遊戲內進行打工小遊戲，並賺取零用錢(遊戲內虛擬貨幣)，並使用零用錢購買禮物送他，及其他可觸發特殊劇情之道具。
+                </section>
+            </article>
+        </div>
+        <div class="feature">
+            <div class="featureBg">
+                <h2 class="title">遊戲特色</h2>
+            </div>
+            <ol class="feaLink">
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色1．用訊息隨時與他互動
+                </li></a>
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色2．VR移動視線
+                </li></a>
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色3．對話反映妳的性格
+                </li></a>
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色4．小遊戲獲得零用錢
+                </li></a>
+                <a href="javascript:;"><li>
+                    <img src="img/tagFea.png" alt="標籤連結" class="tagFea">
+                    特色5．禮物傳達妳的心意
+                </li></a>
+            </ol>
+            <div class="phone">
+                <div class="screenMask">
+                    <img src="img/feaShop.png" alt="" class="feaShopScreen">
+                </div>
+                <img src="img/iX.png" alt="iphone" class="iX">
+            </div>
+            <article class="featureShop">
+                <section class="highlight2">
+                    購買禮物將妳的心意傳達給他
+                </section>
+                <section class="content">
+                    將道具當成「禮物」送給他，會收到他傳來的感謝訊息。<br>
+                    配合每個角色的喜好購買禮物或特殊道具，將可觸發隱藏劇情。
+                </section>
+            </article>
+        </div>
+        <div class="download">
+            <p class="white">「四月六日未完待續」戀愛遊戲全9集</p>
+            <img src="img/downloadSlogan.png" alt="找回情竇初開的酸甜滋味">
+            <p class="white">每集6話，組合售價360元</p>
+            <p class="white"> 第一集好評發售中！</p>
+            <a href="javascript:;" class="downloadLink">
+                <img src="img/appStore.svg" alt="AppleStore">
+            </a>
+            <a href="javascript:;" class="downloadLink">
+                <img src="img/playStore.svg" alt="PlayStore">
+            </a>
+        </div>
+        <div class="detail">
+            <h2 class="title">產品情報</h2>
+            <section class="chapter">
+                <h3>內容說明</h3>
+                <p class="">
+                    本遊戲共9集(每個人物為1集) <br>
+                    每集有6章，其中第1章為序章◆共同篇，2~5章為各人物劇情 <br>
+                    若未購買該人物之第2~5章，即使遊戲內有互動，也不會有任何劇情展開
+                </p>
+            </section>
+            <section class="price">
+                <h3>價格</h3>
+                <table class="price">
+                    <tr>
+                        <td>
+                            軟體本體(序章◆ 共同篇)<br>
+                            每集第2章以後各章(全6章) <br>
+                            章節組合包（一次購買該集2～6章）
+                        </td>
+                        <td>
+                            優惠價30元（原價90元）<br>
+                            優惠價30元（原價90元）<br>
+                            優惠價120元(原價450元)
+                        </td>
+                    </tr>
+                </table>
+                <p class="oran">
+                    ※章節２以後各章，為遊戲內課金內容。 <br>
+                    ※「章節組合包」必須在「序章◆共同篇」完成後才能夠購買。<br>
+                    ※若是已單獨購入「章節２」，將無法購買「章節組合包」。
+                </p>
+            </section>
+            <section class="system">
+                <h3>系統需求</h3>
+                <table class="system">
+                    <tr class="center" >
+                        <td rowspan="2">作業系統</td>
+                        <td>iOS</td>
+                        <td>Android</td>
+                    </tr>
+                    <tr class="center">
+                        <td>iOS7.0以降</td>
+                        <td>Android4.2～7.1.2</td>
+                    </tr>
+                    <tr>
+                        <td class="center">裝置</td>
+                        <td>
+                            iPhone 5 <br>
+                            iPhone 5S  <br>
+                            iPhone 5C <br>
+                            iPhone 6 <br>
+                            iPhone 6S <br>
+                            iPhone 6 Plus <br>
+                            iPhone 6S Plus <br>
+                            iPhone SE <br>
+                            iPhone 7 <br>
+                            iPhone 7 Plus <br>
+                            iPhone 8 <br>
+                            iPhone 8 Plus <br>
+                            iPhone X <br>
+                            iPhone Xs <br>
+                            iPhone Xs Plus <br>
+                            iPhone XR <br>
+                            iPad Retina(第4世) <br>
+                            iPad (第5世) <br>
+                            iPad mini 2 Retina
+                            iPad mini 3 <br>
+                            iPad mini 4 <br>
+                            iPad Pro(9.7吋/2016) <br>
+                            iPad Pro(10.5吋) <br>
+                            iPad Pro(12.9吋) <br>
+                            iPod touch(第6代) <br>
+                            iPad Air <br>
+                            iPad Air 2
+                        </td>
+                        <td>
+                            ARROWS NX(F-01F)　<br>
+                            ARROWS NX(F-02H) 　<br>
+                            ASUS PadFone S PF500KL　<br>
+                            ASUS ZenFone 2　<br>
+                            ASUS ZenFone 3　<br>
+                            ASUS ZenFone 6　<br>
+                            GALAXY S 7 Egde　<br>
+                            Google Nexus 6(XT1100) 　<br>
+                            Google Nexus 7(2013)　<br>
+                            Google Nexus 9　<br>
+                            HTC 516　<br>
+                            HTC Butterfly　<br>
+                            HTC Butterfly 2　<br>
+                            HTC Butterfly S　<br>
+                            HTC DESIRE 820　<br>
+                            HTC ONE M7　<br>
+                            HTC ONE M8　<br>
+                            HUAWEI MediaPad M3　<br>
+                            LG Disney Mobile on docomo (DM-01G)　<br>
+                            LG G3　<br>
+                            LG isai LV LGV31　<br>
+                            Samsung Galaxy A8　<br>
+                            SAMSUNG Galaxy J5　<br>
+                            SAMSUNG Galaxy J7　<br>
+                            Samsung Galaxy Note 2　<br>
+                            Samsung Galaxy Note 2 (GT-N7100)　<br>
+                            Samsung Galaxy Note 3　<br>
+                            Samsung Galaxy Note 4　<br>
+                            Samsung Galaxy S4　<br>
+                            Samsung Galaxy S5　<br>
+                            Samsung Galaxy S6　<br>
+                            Samsung Galaxy S7　<br>
+                            SHARP AQUOS PAD (SH-05G)　<br>
+                            SHARP AQUOS PHONE SERIE mini (SHL24)　<br>
+                            SHARP AQUOS ZETA (SH-01H)　<br>
+                            SONY Xperia A　<br>
+                            SONY Xperia A4　<br>
+                            SONY Xperia M　<br>
+                            SONY Xperia Z Ultra　<br>
+                            SONY Xperia Z1　<br>
+                            SONY Xperia Z2 Tablet　<br>
+                            SONY Xperia Z3　<br>
+                            SONY Xperia Z3-Compact　<br>
+                            SONY Xperia Z4　<br>
+                            SONY Xperia Z4 Tablet　<br>
+                            SONY Xperia Z5 Premium　<br>
+                            Xiaomi 2S　<br>
+                            Xperia XZ　<br>
+                            Xperia XZs　<br>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="footerContent">
+            <a href="index.html"><img src="img/logoMW.png" alt="LOGO" class="footerLogo"></a>
+            <span class="white">
+            <a href="javascript:;" class="">關於特別感謝</a>
+            <a href="javascript:;" class="">聯絡客服</a>
+            iOS|Android
+            </span>
+            <img src="img/rate12.png" alt="輔12級" class="rate12">
+        </div>
+    </footer>
+</body>
+</html>

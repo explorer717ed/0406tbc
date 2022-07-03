@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>《四月六日 未完待續》最新消息</title>
+    <link rel="stylesheet" href="cssreset.css">
+    <link rel="stylesheet" href="common.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body{
+        background: url(img/desk.jpg) no-repeat fixed;
+        background-size: cover;
+        }
+        /* 選單已選的橘色背景 */
+        .menu::before{
+            content: "";
+            width: 121px;
+            height: 35px;
+            background: rgba(255,163,43,0.8);
+            position: absolute;
+            left: 0;top: 129px;
+            z-index: -1;
+        }
+        .menu::after{
+            content: "";
+            border-top: rgba(255,163,43,0.8) solid 17.5px;
+            border-left: rgba(255,163,43,0.8) solid 17.5px;
+            border-right: rgba(0,0,0,0) solid 17.5px;
+            border-bottom: rgba(0,0,0,0) solid 17.5px;
+            position: absolute;
+            left: 121px;top: 129px;
+            z-index: -1;
+        }
+
+        
+        /* 最新消息 */
+        .newspaper{
+            width: 860px;
+            margin: auto;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1)
+        }
+        .clearfix{clear: both;}
+        .npcWeekly{
+            background: url(img/newspaperHead.png) no-repeat;
+            background-size: 100%;
+            width: 503px;
+            height: 65px;
+            font-size: 16px;
+            color: #114d7c;
+            margin: 30px 0 0 0;
+            padding: 35px 0 0 357px;
+        }
+        .npcWeekly strong{font-size: 36px;}
+        .newsBody{
+            background: rgba(255,249,224,1);
+            width: 860px;
+        }
+        .newsBody a{color: #114d7c;}
+        .newsBody article:hover{
+            box-shadow:0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .newspaper article{float: left;}
+        .content{
+            text-align: justify;
+        }
+        .column1{
+            width: 200px;
+            height: 400px;
+            margin: 10px;
+            overflow: hidden;
+        }
+        .column2{
+            width: 400px;
+            margin: 10px;
+            height: 400px;
+            overflow: hidden;
+        }
+        .highlight1{font-size: 36px;color: #114d7c}
+        .highlight2{
+            color: #114d7c;
+            font-size: 24px;
+            /* margin: 0 0 10px 0; */
+        }
+        .column2 img{width: 400px;}
+        .column4{
+            margin: 10px;
+            height: 250px;
+            overflow: hidden;
+        }
+        .column4 img{width: 400px;float: left;}
+        .column4 .content, .column4 .highlight2{
+            margin: 0 10px;
+            width: 410px;
+            float: left;
+        }
+        .newsBody i{vertical-align: middle;}
+
+        /* 頁碼 */
+        .wrap{position: relative;}
+        .pagi{
+            margin: auto;
+            padding: 10px 0;
+            text-align: center;
+            width: 860px;
+            background: #fff9e0 url(img/pagiTape.png) no-repeat;
+            background-position: center;
+        }
+        .pagi a{
+            padding: 5px 10px;
+            color: #fff9e0;
+            background: rgba(255,249,224,0.2);
+            border-radius: 0;
+            transition: 0.5s;
+        }
+        .pagi a:hover{
+            border-radius: 50px;
+            background: rgba(255,249,224,0.5)
+        }
+        .pagi span{padding: 10px;}
+        /* .pagi img{
+            position: absolute;
+            z-index: -1;
+            right: 0px;
+            top: -6px;
+        } */
+
+        /* 下載點 */
+        .download{
+            margin: 100px auto 0px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img src="img/logoM.png" alt="Logo" class="logo"></a>
+        <nav>
+            <ul class="menu">
+                <li><a href="info.html">遊戲介紹</a></li>
+                <li><a href="media.html">校園畫展</a></li>
+                <li><a href="news.html">最新消息</a></li>
+                <li><a href="forum.html">討論區</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="newspaper">
+            <!-- <img src="img/homeNewspaper.png" alt="本週校刊"> -->
+            <div class="npcWeekly">
+                <strong>NPC校刊</strong> 2019.02期
+            </div>
+            <div class="newsBody">
+                <a href="jacascript:;"><article class="column1">
+                    <h3 class="highlight2">原聲帶新發售</h3>
+                    <section class="content">
+                        2019.01.07 <i class="material-icons">fiber_new</i> <br>
+                        四月六日未完待續全新原聲帶Evan個人EP《剛好的傷口》上線，作為開年首份重磅驚喜，制霸少年化身乖巧的甜味男孩，輕聲吟唱用音樂治癒你的寒冬! <br>
+                        全新EP同名主打歌《剛好的傷口》，是Evan的首支抒情單曲。舒緩的旋律搭配上敲擊的鼓點，與偶爾流淌的優雅鋼琴相得益彰，再加上Evan溫潤低沉的音色，治癒你心底的傷口，比冬日暖陽還讓人悸動。在這首單曲中，Evan一改往日野性少年的形象，化身低眉順眼讀信的甜味男孩，用溫柔將冷峻融化，更加奪人心扉。 <br>
+                        全新EP《剛好的傷口》在製作上可謂費足心思，團隊不僅有曾獲“Billboard Radio China 年度華語十大金曲獎”的創作小天王Eric親自操刀製作，更邀請了老搭檔一同寫詞，兩位才子的碰撞讓Evan演繹出獨具風格的溫暖。
+                    </section>
+                </article></a>
+                <a href="jacascript:;"><article class="column2">
+                    <h3 class="highlight1">第24屆校慶週明日展開</h3>
+                    <img src="img/news1.png" alt="校慶比腕力活動">
+                    <section class="content">
+                        2019.01.05 <br>
+                        NPC第24屆校慶就要到了；幫各位整理了星期六當日的時程表，不要錯過重要的加油時刻囉！<br>
+                        煙火施放後，還有學生會舉辦的星光之夜，邀請社團、藝藝人站台一同演出；近日會公布詳細資訊，敬請期待！
+                    </section>
+                </article></a>
+                <a href="jacascript:;"><article class="column1">
+                    <h3 class="highlight2">熱舞成發落幕</h3>
+                    <section class="content">
+                        2018.12.18 <br>
+                        NPC高中學生社團熱舞社第十屆成果發表會「舞夜夢迴」於12月12日晚上在該校中山體育館隆重登場，集結各科系的舞林高手一同切磋舞技，舞台魅力震撼人心。
+                        「創新者」是NPC熱舞社一整年努力練習的成果展現，為使表演更加精采。全場多達17支舞碼的演出，以夢為主題，由「創新者」帶領觀眾進入想像的奇幻世界，接著「I need a doctor」、「Ei喔Ei喔」等不同風格的等不同風格的節目接力登..
+                    </section>
+                </article></a>
+                <a href="jacascript:;"><article class="column4">
+                    <img src="img/news2.png" alt="所有閃光都值得等待">
+                    <h3 class="highlight2">所有閃光都值得等待 青春應修課</h3>
+                    <section class="content">
+                        2018.9.17 <br>
+                        9月20日，“青春應修課”來到NPC，邀請《愛上超模》及《偶像練習生》等熱門綜藝製片人姜濱，《偶像練習生》出道成員林彥俊與高校學子面對面交流，以“所有閃光都值得等待”為主題，講述關於偶像養成台前幕後的那些事，講述人生等待、青春夢想的故事。<br>
+                        林彥俊在《偶像練習生》獲得第五名，並加入NINE PERCENT正式出道。姜濱則是多個真人競技類王牌綜藝節目的製片人。一個台前，一個幕後，他們是近兩年火爆的偶像養成類節目的見證人、參與者。對於追求“知其然知其所以然”的大學生朋友，通過他們可以相對完整地瞭解偶像養成的時代大背景與產業環境。<br>
+                        《偶像練習生》播出後，姜濱又操刀推出了《中國音樂公告牌》，一檔打歌類節目。他認為，通過打歌給年輕偶像、剛出道的團體提供了新的表演舞臺，因為很多音樂需要視聽結合的展現。在他看來，目前國內的偶像養成還缺乏團綜類的節目，《偶像練習生》更像是生存類節目，並沒有辦法展現團魂，團綜節目則能展現一個團體真正的精神面貌
+                    </section>
+                </article></a>
+                <a href="jacascript:;"><article class="column2">
+                    <h3 class="highlight2">第24屆校慶週明日展開</h3>
+                    <img src="img/news1.png" alt="校慶比腕力活動">
+                    <section class="content">
+                        2018.08.24 <br>
+                        NPC第24屆校慶就要到了；幫各位整理了星期六當日的時程表，不要錯過重要的加油時刻囉！<br>
+                        煙火施放後，還有學生會舉辦的星光之夜，邀請社團、藝藝人站台一同演出；近日會公布詳細資訊，敬請期待！
+                    </section>
+                </article></a>
+                <a href="jacascript:;"><article class="column2">
+                    <h3 class="highlight2">第24屆校慶週明日展開</h3>
+                    <img src="img/news1.png" alt="校慶比腕力活動">
+                    <section class="content">
+                        2018.08.24 <br>
+                        NPC第24屆校慶就要到了；幫各位整理了星期六當日的時程表，不要錯過重要的加油時刻囉！<br>
+                        煙火施放後，還有學生會舉辦的星光之夜，邀請社團、藝藝人站台一同演出；近日會公布詳細資訊，敬請期待！
+                    </section>
+                </article></a>
+                <a href="jacascript:;"><article class="column1">
+                    <h3 class="highlight2">熱舞成發落幕</h3>
+                    <section class="content">
+                        2018.08.24 <br>
+                        NPC高中學生社團熱舞社第十屆成果發表會「舞夜夢迴」於12月12日晚上在該校中山體育館隆重登場，集結各科系的舞林高手一同切磋舞技，舞台魅力震撼人心。
+                        「創新者」是NPC熱舞社一整年努力練習的成果展現，為使表演更加精采。全場多達17支舞碼的演出，以夢為主題，由「創新者」帶領觀眾進入想像的奇幻世界，接著「I need a doctor」、「Ei喔Ei喔」等不同風格的等不同風格的節目接力登..
+                    </section>
+                </article></a>
+                <a href="jacascript:;"><article class="column1">
+                    <h3 class="highlight2">系統維護公告</h3>
+                    <section class="content">
+                        2018.08.24 <br>
+                        本校因第二學生宿舍整修，自本年3月28日開始開施工，造成老師、同仁、同學不便尚請見諒，以下幾點請各位老師、同仁、同學配合：<br>
+                        一、第二宿舍後方區域實施開挖期間，會影響  第一 宿舍人員進出及二舍同學盥洗的不方便，請一舍同學配合改由第二宿舍出入。<br>
+                        二、因需開挖景賢樓至第一宿舍道路時，需對該區域及側門封閉，屆時請老師及同學改走大門，避免影響人員
+                    </section>
+                </article></a>
+                <a href="jacascript:;"><article class="column2">
+                    <h3 class="highlight2">第24屆校慶週明日展開</h3>
+                    <img src="img/news1.png" alt="校慶比腕力活動">
+                    <section class="content">
+                        2018.08.24 <br>
+                        NPC第24屆校慶就要到了；幫各位整理了星期六當日的時程表，不要錯過重要的加油時刻囉！<br>
+                        煙火施放後，還有學生會舉辦的星光之夜，邀請社團、藝藝人站台一同演出；近日會公布詳細資訊，敬請期待！
+                    </section>
+                </article></a>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="pagi">
+            <div class="wrap">
+                <!-- <img src="img/pagiTape.png" alt="頁碼"> -->
+                <a href="javascript:;"><</a>
+                <span>page 1</span>
+                <a href="javascript:;">2</a>
+                <a href="javascript:;">3</a>
+                <a href="javascript:;">4</a>
+                <a href="javascript:;">></a>
+                <a href="javascript:;">>></a>
+            </div>
+        </div>
+    <div class="download">
+        <p class="white">「四月六日未完待續」戀愛遊戲全9集</p>
+        <img src="img/downloadSlogan.png" alt="找回情竇初開的酸甜滋味">
+        <p class="white">每集6話，組合售價360元</p>
+        <p class="white"> 第一集好評發售中！</p>
+        <a href="javascript:;" class="downloadLink">
+            <img src="img/appStore.svg" alt="AppleStore">
+        </a>
+        <a href="javascript:;" class="downloadLink">
+            <img src="img/playStore.svg" alt="PlayStore">
+        </a>
+    </div>
+    </main>
+    <footer>
+        <div class="footerContent">
+            <a href="index.html"><img src="img/logoMW.png" alt="LOGO" class="footerLogo"></a>
+            <span class="white">
+            <a href="javascript:;" class="">關於特別感謝</a>
+            <a href="javascript:;" class="">聯絡客服</a>
+            iOS|Android
+            </span>
+            <img src="img/rate12.png" alt="輔12級" class="rate12">
+        </div>
+    </footer>
+    
+</body>
+</html>

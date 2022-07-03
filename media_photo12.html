@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>《四月六日 未完待續》校園畫展</title>
+    <link rel="stylesheet" href="cssreset.css">
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+    body{
+        background: url(img/desk.jpg) no-repeat fixed;
+        background-size: cover;
+        }
+    /* 選單已選的橘色背景 */
+    .menu::before{
+        content: "";
+        width: 156px;
+        height: 35px;
+        background: rgba(255,163,43,0.8);
+        position: absolute;
+        left: 0;top: 94px;
+        z-index: -1;
+    }
+    .menu::after{
+        content: "";
+        border-top: rgba(255,163,43,0.8) solid 17.5px;
+        border-left: rgba(255,163,43,0.8) solid 17.5px;
+        border-right: rgba(0,0,0,0) solid 17.5px;
+        border-bottom: rgba(0,0,0,0) solid 17.5px;
+        position: absolute;
+        left: 156px;top: 94px;
+        z-index: -1;
+    }
+    /* 劇照 */
+    .photo,.snap,.video{
+        position: relative;
+        width: 960px;
+        height: 750px;
+        margin: auto;
+    }
+    .photo a,.snap a,.video a,.commentSide a{color: #114d7c;}
+    .photoBg{
+        height: 750px;
+        background: url(img/photo4papers.png) no-repeat;
+        background-size: 100%;
+        position:absolute;
+        z-index: -2;
+        top: 0px;
+    }
+    .photoBg .title{
+        padding: 50px 0 0 0;
+        margin-left: 55%;
+    }
+    .photo11,.photo13,.photo15,.photo12,.photo14,.photo16,
+    .snap11,.snap12,.snap13,.snap14,.snap15,.snap16,
+    .video11,.video12,.video13,.video14,.video15,.video16{
+        background: #fff9e0;
+        position: absolute;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    }
+    /* 窄的照片 */
+    .photo11,.photo13,.photo15,
+    .snap11,.snap13,.snap15,
+    .video11,.video13,.video15{
+        width: 200px;
+        height: 280px;
+    }
+    .imgMaskN{
+        width: 180px;
+        height: 230px;
+        padding: 10px 0 0 10px;
+        margin: 0 10px 10px 0;
+        overflow: hidden;
+    }
+    .imgMaskN img{width: 100%;}
+    /* 寬的照片 */
+    .photo12,.photo14,.photo16,
+    .snap12,.snap14,.snap16,
+    .video12,.video14,.video16{
+        width: 280px;
+        height: 230px;
+    }
+    .imgMaskW{
+        width: 260px;
+        height: 180px;
+        padding: 10px 0 0 10px;
+        margin: 0 10px 10px 0;
+        overflow: hidden;
+    }
+    .imgMaskW img{width: 100%;}
+    /* 照片框的內容 */
+    figcaption{margin: 0 10px 10px 10px;}
+    .material-icons{
+        font-size: 16px;
+        vertical-align: middle;
+        letter-spacing: -3px;
+    }
+    figcaption .icons{
+        float: right;
+        margin: 0 2px;
+        
+    }
+    /* 照片位置 */
+    .photo11{top: 120px;left: 160px;}
+    .photo12{top: 100px;left: 380px;}
+    .photo14{top: 410px;left: 80px;}
+    .photo15{top: 340px;left: 380px;}
+    .photo13{top: 50px;left: 680px;}
+    .photo16{top: 340px;left: 600px;}
+
+    /* 頁碼 */
+    .wrap{position: relative;}
+    .pagiR,.pagiL{
+        position: absolute;
+    }
+    .photo .pagiR{
+        bottom: 94px;
+        right: 0;
+        transform: rotate(-6deg);
+    }
+    .snap .pagiL{
+        bottom: 114px;
+        left: 0;
+        transform: rotate(6deg);
+    }
+    .video .pagiR{
+        bottom: 126px;
+        right: 0;
+        transform: rotate(-6deg);
+    }
+    .pagiR a,.pagiL a{
+        padding: 5px 10px;
+        color: #fff9e0;
+        background: rgba(255,249,224,0.2)
+    }
+    .pagiR span,.pagiL span{padding: 10px;}
+    .pagiR img,.pagiL img{
+        position: absolute;
+        z-index: -1;
+        right: -25px;
+        top: -6px;
+    }
+    /* 遊戲節圖 */
+    .snapBg{
+        height: 750px;
+        background: url(img/snap4papers.png) no-repeat;
+        background-size: 100%;
+        width: 1060px;
+        position:absolute;
+        left: -50px;
+        z-index: -2;
+        transform: rotate(10deg);
+    }
+    .snapBg .title{
+        margin-right: 55%;
+        margin-top: 20px;
+        text-align: right;
+    }
+    .snap11{top: 30px;left: 80px;}
+    .snap14{top: 320px;left: 80px;}
+    .snap12{top: 80px;left: 300px;}
+    .snap15{top: 320px;left: 380px;}
+    .snap13{top: 100px;left: 600px;}
+    .snap16{top: 390px;left: 600px;}
+
+    /* 影片 */
+    .videoBg{
+        height: 750px;
+        background: url(img/4papers.png) no-repeat;
+        background-size: 100%;
+        width: 1060px;
+        position:absolute;
+        left: -50px;
+        z-index: -2;
+        transform: rotate(-10deg);
+    }
+    .videoBg .title{
+        margin-left: 55%;
+    }
+    .video11{top: 80px;left: 160px;}
+    .video12{top: 60px;left: 380px;}
+    .video14{top: 370px;left: 80px;}
+    .video15{top: 300px;left: 380px;}
+    .video13{top: 10px;left: 680px;}
+    .video16{top: 300px;left: 600px;}
+
+    /* 下載 */
+    .download{
+        position: relative;
+        width: 960px;
+        /* height: 750px; */
+        margin: auto;
+    }
+
+    /* 圖片詳細黑幕 */
+    .blBg{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 11;
+    }
+    .photo11Detail{
+        position: fixed;
+        width: 960px;
+        height: 80vh;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    /* 左側圖片 */
+    .imgSide{
+        width: 560px;
+        background: rgba(0, 39, 69, 0.9) url(img/homeBanner.png) center no-repeat;
+        background-size:90%; 
+        height: 80vh;
+        position: relative;
+        float: left;
+    }
+    .imgSide i{
+        color: rgba(255,249,224,0);
+        position: absolute;
+        bottom: 50%;
+        font-size: 50px;
+        transition:0.5s;
+    }
+    .imgSide .right{
+        right: 0;
+    }
+
+    .imgSide:hover i{
+        color: rgba(255,249,224,1)
+    }
+
+    /* 右側評論 */
+    .commentSide{
+        width: 360px;
+        background: #fff9e0;
+        float: left;
+        padding: 0 20px;
+        height: 80vh;
+        position: relative;
+    }
+    .commentSide h3{
+        font-size: 24px;
+        text-align: center;
+        padding-top:30px;
+        height: 100px;
+    }
+    .commentSide i{
+        font-size: 20px;
+        padding-right:10px;
+        vertical-align: text-bottom;
+    }
+    .commentSide .btn{
+        border: 2px solid #fff9e0;
+        background: rgba(255, 163, 43, 0.3);
+        width: 86px;
+        padding: 5px 0;
+        text-align: center;
+        float: left;
+        cursor: pointer;
+        
+    }
+    .commentBox{
+        height: 530px;
+        overflow: auto;
+        margin-top: 10px;
+        border-top: 1px solid rgba(255, 163, 43, 0.3);
+    }
+    .comms{
+        border-bottom: 1px solid rgba(255, 163, 43, 0.3);
+        /* margin: 10px 0; */
+        /* border-bottom: 1px solid rgba(255, 163, 43, 0.3); */
+        padding: 10px 0;
+    }
+    .avatar{
+        width: 44px;
+        height: 44px;
+        border: 1px solid rgba(255, 163, 43, 0.3);
+        margin: 0 5px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    .message{width: 280px;}
+    .avatar,.message{float: left;}
+    .avatar img{width: 100%;}
+    .name{
+        font-weight: bold;
+        color: rgba(17, 77, 124, 0.5);
+    }
+
+    .post{
+        position: absolute;
+        bottom: 0;
+        padding: 10px 0;
+        border-top:  1px solid rgba(255, 163, 43, 0.3);
+        background: #fff9e0;
+    }
+    input[type=text]{
+        border: 1px solid rgba(255, 163, 43, 0.3);
+        background: rgba(255, 163, 43, 0.3);
+        border-radius: 50px;
+        padding: 5px 10px;
+        margin: 7px 0;
+        font-family: 微軟正黑體;
+        width: 245px;
+    }
+    input[type=submit]{display: none;}
+    form i{cursor: pointer;}
+
+    .close{
+        background: #fff9e0;
+        padding: 10px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: #114d7c;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="blBg">
+        <div class="photo11Detail">
+            <div class="imgSide">
+                <a href="media_photo11.html"><i class="material-icons left">chevron_left</i></a>
+                <a href="javascript:;"><i class="material-icons right">chevron_right</i></a>
+            </div>
+            <div class="commentSide">
+                <h3>第一次籌備會議</h3>
+                <div class="btn"><i class="material-icons">thumb_up</i>讚</div> 
+                <div class="btn"><i class="material-icons">chat</i>回應</div>
+                <div class="btn"><i class="material-icons">share</i>分享</div>
+                <a href="forum.html"><div class="btn">討論區</div></a>
+                <div class="clearfix"></div>
+                <div class="commentBox">
+                    <div class="comms">
+                        <div class="avatar">
+                            <img src="img/avatar.png" alt="頭像">
+                        </div>
+                        <div class="message">
+                            <span class="name">Evanism</span>
+                            <span >今天有新劇情更新，快去解鎖！！！</span><br>
+                            <span class="sentDatetime">2019/01/07 08:24</span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="comms">
+                        <div class="avatar">
+                            <img src="img/avatar.png" alt="頭像">
+                        </div>
+                        <div class="message">
+                            <span class="name">Evanism</span>
+                            <span >今天有新劇情更新，快去解鎖！！！</span><br>
+                            <span class="sentDatetime">2019/01/07 08:24</span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="comms">
+                        <div class="avatar">
+                            <img src="img/avatar.png" alt="頭像">
+                        </div>
+                        <div class="message">
+                            <span class="name">Evanism</span>
+                            <span >今天有新劇情更新，快去解鎖！！！</span><br>
+                            <span class="sentDatetime">2019/01/07 08:24</span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="comms">
+                        <div class="avatar">
+                            <img src="img/avatar.png" alt="頭像">
+                        </div>
+                        <div class="message">
+                            <span class="name">Evanism</span>
+                            <span >今天有新劇情更新，快去解鎖！！！</span><br>
+                            <span class="sentDatetime">2019/01/07 08:24</span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="comms">
+                        <div class="avatar">
+                            <img src="img/avatar.png" alt="頭像">
+                        </div>
+                        <div class="message">
+                            <span class="name">Evanism</span>
+                            <span >今天有新劇情更新，快去解鎖！！！</span><br>
+                            <span class="sentDatetime">2019/01/07 08:24</span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="comms">
+                        <div class="avatar">
+                            <img src="img/avatar.png" alt="頭像">
+                        </div>
+                        <div class="message">
+                            <span class="name">Evanism</span>
+                            <span >今天有新劇情更新，快去解鎖！！！</span><br>
+                            <span class="sentDatetime">2019/01/07 08:24</span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="comms">
+                        <div class="avatar">
+                            <img src="img/avatar.png" alt="頭像">
+                        </div>
+                        <div class="message">
+                            <span class="name">Evanism</span>
+                            <span >今天有新劇情更新，快去解鎖！！！</span><br>
+                            <span class="sentDatetime">2019/01/07 08:24</span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="comms">
+                        <div class="avatar">
+                            <img src="img/avatar.png" alt="頭像">
+                        </div>
+                        <div class="message">
+                            <span class="name">Evanism</span>
+                            <span >今天有新劇情更新，快去解鎖！！！</span><br>
+                            <span class="sentDatetime">2019/01/07 08:24</span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="comms">
+                        <div class="avatar">
+                            <img src="img/avatar.png" alt="頭像">
+                        </div>
+                        <div class="message">
+                            <span class="name">Evanism</span>
+                            <span >今天有新劇情更新，快去解鎖！！！</span><br>
+                            <span class="sentDatetime">2019/01/07 08:24</span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="comms">
+                        <div class="avatar">
+                            <img src="img/avatar.png" alt="頭像">
+                        </div>
+                        <div class="message">
+                            <span class="name">Evanism</span>
+                            <span >今天有新劇情更新，快去解鎖！！！</span><br>
+                            <span class="sentDatetime">2019/01/07 08:24</span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="comms">
+                        <div class="avatar">
+                            <img src="img/avatar.png" alt="頭像">
+                        </div>
+                        <div class="message">
+                            <span class="name">Evanism</span>
+                            <span >今天有新劇情更新，快去解鎖！！！</span><br>
+                            <span class="sentDatetime">2019/01/07 08:24</span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="comms">
+                        <div class="avatar">
+                            <img src="img/avatar.png" alt="頭像">
+                        </div>
+                        <div class="message">
+                            <span class="name">Evanism</span>
+                            <span >今天有新劇情更新，快去解鎖！！！</span><br>
+                            <span class="sentDatetime">2019/01/07 08:24</span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <form action="" class="post">
+                    <div class="avatar">
+                        <img src="img/avatar.png" alt="頭像">
+                    </div>
+                    <input type="text" placeholder="留言...">
+                    <input type="submit" value="" id="send">
+                    <label for="send">
+                        <i class="material-icons">send</i>
+                    </label>
+                </form>
+            </div>
+            <a href="media.html"><i class="material-icons close">close</i></a> 
+        </div>
+    </div>
+    <header>
+        <a href="index.html"><img src="img/logoM.png" alt="Logo" class="logo"></a>
+        <nav>
+            <ul class="menu">
+                <li><a href="info.html">遊戲介紹</a></li>
+                <li><a href="media.html">校園畫展</a></li>
+                <li><a href="news.html">最新消息</a></li>
+                <li><a href="forum.html">討論區</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="photo">
+            <div class="photoBg">
+                <h2 class="title">劇 照</h2>
+            </div>
+            <div class="photoPage1">
+                <a href="javascrip:;"><figure class="photo11">
+                    <div class="imgMaskN">
+                    <img src="img/photo11.png" alt="Evan">
+                    </div>
+                    <figcaption>
+                        <span>Evan</span>
+                        <div class="icons">
+                            <a href="javascript:;">
+                            <i class="material-icons">thumb_up</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">chat</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">share</i>
+                            </a>
+                        </div>
+                    </figcaption>
+                </figure></a>
+                
+                <a href="javascript:;"><figure class="photo12">
+                    <div class="imgMaskW">
+                        <img src="img/homeBanner.png" alt="籌備會議">
+                    </div>
+                    <figcaption>
+                        <span>第一次籌備會議</span>
+                        <div class="icons">
+                            <a href="javascript:;">
+                            <i class="material-icons">thumb_up</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">chat</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">share</i>
+                            </a>
+                        </div>
+                    </figcaption>
+                </figure></a>
+                <a href="javascript:;"><figure class="photo13">
+                    <div class="imgMaskN">
+                        <img src="img/photo52.jpg" alt="Evan">
+                    </div>
+                    <figcaption>
+                        <span>Evan</span>
+                        <div class="icons">
+                            <a href="javascript:;">
+                            <i class="material-icons">thumb_up</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">chat</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">share</i>
+                            </a>
+                        </div>
+                    </figcaption>
+                </figure></a>
+                <a href="javascript:;"><figure class="photo14">
+                    <div class="imgMaskW">
+                        <img src="img/news2.png" alt="青春應修課">
+                    </div>
+                    <figcaption>
+                        <span>青春應修課</span>
+                        <div class="icons">
+                            <a href="javascript:;">
+                            <i class="material-icons">thumb_up</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">chat</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">share</i>
+                            </a>
+                        </div>
+                    </figcaption>
+                </figure></a>
+                <a href="javascript:;"><figure class="photo15">
+                    <div class="imgMaskN">
+                        <img src="img/photo15.jpg" alt="Nong">
+                    </div>
+                    <figcaption>
+                        <span>Nong</span>
+                        <div class="icons">
+                            <a href="javascript:;">
+                            <i class="material-icons">thumb_up</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">chat</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">share</i>
+                            </a>
+                        </div>
+                    </figcaption>
+                </figure></a>
+                <a href="javascript:;"><figure class="photo16">
+                    <div class="imgMaskW">
+                        <img src="img/photo16.png" alt="Evan">
+                    </div>
+                    <figcaption>
+                        <span>Evan</span>
+                        <div class="icons">
+                                <a href="javascript:;">
+                                <i class="material-icons">thumb_up</i>
+                                10
+                                </a>
+                                <a href="javascript:;">
+                                <i class="material-icons">chat</i>
+                                10
+                                </a>
+                                <a href="javascript:;">
+                                <i class="material-icons">share</i>
+                                </a>
+                        </div>
+                </figcaption>
+                </figure></a>
+            </div>
+            <div class="pagiR">
+                <div class="wrap">
+                    <img src="img/pagiTape.png" alt="頁碼">
+                    <a href="media.html"><</a>
+                    <span>page 1</span>
+                    <a href="mediaPhotoP2.html">2</a>
+                    <a href="javascript:;">3</a>
+                    <a href="javascript:;">4</a>
+                    <a href="mediaPhotoP2.html">></a>
+                    <a href="javascript:;">>></a>
+                </div>
+            </div>
+        </div>
+        <div class="snap">
+            <div class="snapBg">
+                <h2 class="title">遊戲截圖</h2>
+            </div>
+            <div class="snapPage1">
+                <a href="javascipt:;"><figure class="snap11">
+                    <div class="imgMaskN">
+                        <img src="img/snap11.jpg" alt="Nong">
+                    </div>
+                    <figcaption>
+                        <span>Nong</span>
+                        <div class="icons">
+                            <a href="javascript:;">
+                            <i class="material-icons">thumb_up</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">chat</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">share</i>
+                            </a>
+                        </div>
+                    </figcaption>
+                </figure></a>
+                <a href="javascipt:;"><figure class="snap12">
+                    <div class="imgMaskW">
+                        <img src="img/snap12.png" alt="Evan">
+                    </div>
+                    <figcaption>
+                        <span>Evan</span>
+                        <div class="icons">
+                            <a href="javascript:;">
+                            <i class="material-icons">thumb_up</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">chat</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">share</i>
+                            </a>
+                        </div>
+                    </figcaption>
+                </figure></a>
+                <a href="javascipt:;"><figure class="snap13">
+                    <div class="imgMaskN">
+                        <img src="img/snap13.png" alt="Evan">
+                    </div>
+                    <figcaption>
+                        <span>Evan</span>
+                        <div class="icons">
+                            <a href="javascript:;">
+                            <i class="material-icons">thumb_up</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">chat</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">share</i>
+                            </a>
+                        </div>
+                    </figcaption>
+                </figure></a>
+                <a href="javascipt:;"><figure class="snap14">
+                    <div class="imgMaskW">
+                        <img src="img/news1.png" alt="趣味競賽">
+                    </div>
+                    <figcaption>
+                        <span>趣味競賽</span>
+                        <div class="icons">
+                            <a href="javascript:;">
+                            <i class="material-icons">thumb_up</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">chat</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">share</i>
+                            </a>
+                        </div>
+                    </figcaption>
+                </figure></a>
+                <a href="javascipt:;"><figure class="snap15">
+                    <div class="imgMaskN">
+                        <img src="img/snap15.jpg" alt="Evan">
+                    </div>
+                    <figcaption>
+                        <span>Evan</span>
+                        <div class="icons">
+                            <a href="javascript:;">
+                            <i class="material-icons">thumb_up</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">chat</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">share</i>
+                            </a>
+                        </div>
+                    </figcaption>
+                </figure></a>
+                <a href="javascipt:;"><figure class="snap16">
+                    <div class="imgMaskW">
+                        <img src="img/news2.png" alt="青春應修課">
+                    </div>
+                    <figcaption>
+                        <span>青春應修課</span>
+                        <div class="icons">
+                            <a href="javascript:;">
+                            <i class="material-icons">thumb_up</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">chat</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">share</i>
+                            </a>
+                        </div>
+                    </figcaption>
+                </figure></a>
+            </div>
+            <div class="pagiL">
+                <img src="img/pagiTape.png" alt="頁碼">
+                <a href="javascript:;"><</a>
+                <span>page 1</span>
+                <a href="javascript:;">2</a>
+                <a href="javascript:;">3</a>
+                <a href="javascript:;">4</a>
+                <a href="javascript:;">></a>
+                <a href="javascript:;">>></a>
+            </div>
+        </div>
+        <div class="video">
+            <div class="videoBg">
+                <h2 class="title">影片</h2>
+            </div>
+            <div class="videoPage1">
+                <a href="javascrip:;"><figure class="video11">
+                    <div class="imgMaskN">
+                        <video width="180" height="230" controls>
+                            <source src="vdo/class.mp4" type="video/mp4">
+                            您的瀏覽器不支援。
+                        </video>
+                    </div>
+                    <figcaption>
+                        <span>課堂討論</span>
+                        <div class="icons">
+                            <a href="javascript:;">
+                            <i class="material-icons">thumb_up</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">chat</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">share</i>
+                            </a>
+                        </div>
+                    </figcaption>
+                </figure></a>
+                <a href="javascript:;"><figure class="video12">
+                    <div class="imgMaskW">
+                        <video width="260" height="180" controls>
+                            <source src="vdo/Vr.mp4" type="video/mp4">
+                            您的瀏覽器不支援。
+                        </video>
+                    </div>
+                    <figcaption>
+                        <span>VR視角</span>
+                        <div class="icons">
+                            <a href="javascript:;">
+                            <i class="material-icons">thumb_up</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">chat</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">share</i>
+                            </a>
+                        </div>
+                    </figcaption>
+                </figure></a>
+                <a href="javascript:;"><figure class="video13">
+                    <div class="imgMaskN">
+                        <img src="img/photo52.jpg" alt="Evan">
+                    </div>
+                    <figcaption>
+                        <span>Evan</span>
+                        <div class="icons">
+                            <a href="javascript:;">
+                            <i class="material-icons">thumb_up</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">chat</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">share</i>
+                            </a>
+                        </div>
+                    </figcaption>
+                </figure></a>
+                <a href="javascript:;"><figure class="video14">
+                    <div class="imgMaskW">
+                        <img src="img/news2.png" alt="青春應修課">
+                    </div>
+                    <figcaption>
+                        <span>青春應修課</span>
+                        <div class="icons">
+                            <a href="javascript:;">
+                            <i class="material-icons">thumb_up</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">chat</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">share</i>
+                            </a>
+                        </div>
+                    </figcaption>
+                </figure></a>
+                <a href="javascript:;"><figure class="video15">
+                    <div class="imgMaskN">
+                        <img src="img/photo15.jpg" alt="Nong">
+                    </div>
+                    <figcaption>
+                        <span>Nong</span>
+                        <div class="icons">
+                            <a href="javascript:;">
+                            <i class="material-icons">thumb_up</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">chat</i>
+                            10
+                            </a>
+                            <a href="javascript:;">
+                            <i class="material-icons">share</i>
+                            </a>
+                        </div>
+                    </figcaption>
+                </figure></a>
+                <a href="javascript:;"><figure class="video16">
+                    <div class="imgMaskW">
+                        <video width="260" height="180" controls>
+                            <source src="vdo/voice.mp4" type="video/mp4">
+                            您的瀏覽器不支援。
+                        </video>
+                    </div>
+                    <figcaption>
+                        <span>Evan</span>
+                        <div class="icons">
+                                <a href="javascript:;">
+                                <i class="material-icons">thumb_up</i>
+                                10
+                                </a>
+                                <a href="javascript:;">
+                                <i class="material-icons">chat</i>
+                                10
+                                </a>
+                                <a href="javascript:;">
+                                <i class="material-icons">share</i>
+                                </a>
+                        </div>
+                    </figcaption>
+                </figure></a>
+            </div>
+            <div class="pagiR">
+                <img src="img/pagiTape.png" alt="頁碼">
+                <a href="javascript:;"><</a>
+                <span>page 1</span>
+                <a href="javascript:;">2</a>
+                <a href="javascript:;">3</a>
+                <a href="javascript:;">4</a>
+                <a href="javascript:;">></a>
+                <a href="javascript:;">>></a>
+            </div>
+        </div>
+        <div class="download">
+            <p class="white">「四月六日未完待續」戀愛遊戲全9集</p>
+            <img src="img/downloadSlogan.png" alt="找回情竇初開的酸甜滋味">
+            <p class="white">每集6話，組合售價360元</p>
+            <p class="white"> 第一集好評發售中！</p>
+            <a href="javascript:;" class="downloadLink">
+                <img src="img/appStore.svg" alt="AppleStore">
+            </a>
+            <a href="javascript:;" class="downloadLink">
+                <img src="img/playStore.svg" alt="PlayStore">
+            </a>
+        </div>
+    </main>
+    <footer>
+        <div class="footerContent">
+            <a href="index.html"><img src="img/logoMW.png" alt="LOGO" class="footerLogo"></a>
+            <span class="white">
+            <a href="javascript:;" class="">關於特別感謝</a>
+            <a href="javascript:;" class="">聯絡客服</a>
+            iOS|Android
+            </span>
+            <img src="img/rate12.png" alt="輔12級" class="rate12">
+        </div>
+    </footer>
+    
+</body>
+</html>

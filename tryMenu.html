@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>menutry</title>
+    <link rel="stylesheet" href="cssreset.css">
+    <style>
+    body{
+        font-family: Candara,微軟正黑體;
+        letter-spacing: 2px;
+        line-height: 1.5;
+        color: #114d7c
+    }
+    header{
+        background: url(img/menuBgTry.png) no-repeat;
+        background-size: 100%;
+        width: 410px;
+        height: 410px;
+        position: fixed;
+        top: -205px;left: -205px;
+        z-index: 10;
+        transform: rotateZ(45deg);
+        box-shadow:0 0 90px rgba(0, 0, 0, 0.3);
+
+    }
+    .wrapMenu{
+        transform: rotateZ(-45deg);
+        position: fixed;
+        top: 101px;left: 248px;
+    }
+    .logo{
+        height: 45px;
+        margin-top: 5px;
+    }
+    .menu{
+        font-size: 20px;
+        margin: 10px 15px;
+    }
+    .menu li{
+        margin: 0px 0px 15px 0px;
+        letter-spacing: 5px;
+        font-weight: bold;
+        line-height: 1;
+    }
+    .menu a {color:#114d7c;}
+    .menu ul{width: 150px;}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="wrapMenu">
+            <a href="index.html"><img src="img/logoM.png" alt="Logo" class="logo"></a>
+            <nav>
+                <ul class="menu">
+                    <li><a href="info.html">遊戲介紹</a></li>
+                    <li><a href="media.html">校園畫展</a></li>
+                    <li><a href="news.html">最新消息</a></li>
+                    <li><a href="forum.html">討論區</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+</body>
+</html>

@@ -4,1385 +4,461 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>《四月六日未完待續》官方網站</title>
-    <link rel="Shortcut Icon" type="image/x-icon" href="img/shortCut.png">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>《四月六日 未完待續》官方網站</title>
     <link rel="stylesheet" href="cssreset.css">
+    <link rel="stylesheet" href="common.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
     body{
-        font-family: Candara,微軟正黑體;
-        line-height: 1.5;
-        background: #77d2d2;
-    }
-    .clearfix{clear: both;}
-/* .loading畫面 */
-    /* .loadingWrap{
-        position: fixed;
-        z-index: 40;
-        width: 100%;
-        height: 100%;
-        background: #77d2d2;
-
-    }
-    .loading{
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;right: 0;
-        margin: auto;
-        width:45px;
-        height: 45px;
-    }
-    .square{
-        width: 20px;
-        height: 20px;
-        border-radius: 5px;
-        background: #fffcf2;
-        position: absolute;
-        top: 0;left: 0;
-        animation: square 2s infinite;
-    }
-    .loading div:nth-child(1){animation-delay: -0.5s}
-    .loading div:nth-child(2){animation-delay: -1s}
-    .loading div:nth-child(3){animation-delay: -1.5s}
-    .loading div:nth-child(4){animation-delay: -2s}
-    @keyframes square{
-        0%{top: 0;left: 0;opacity: 0.1;}
-        25%{top: 0;left: 25px;opacity: 0.4;}
-        50%{top: 25px;left: 25px;opacity: 0.7;}
-        75%{top: 25px;left: 0;opacity: 1;}
-        100%{top: 0;left: 0;opacity: 0.1;}
-    } */
-
-/* header */
-    header{
-        background: #fce0e0 url(img/paperPink.png) no-repeat top left;
+        background: url(img/desk.jpg) no-repeat fixed;
         background-size: cover;
-        position: fixed;
-        /* width: 66%; */
-        height: 100vh;
-        padding-bottom: 10px;
-        min-height: 544px;
-        display: flex;
-        flex-direction: column;
-        transition-duration: 0.5s;
-        z-index: 30;
     }
-    nav{
-        position: relative;
-    }
-    nav a{
-        position: relative;
-        display: inline-block;
-        padding: 5px 0;
-    }
-    nav a::before{
-        content: '';
-        width: 0%;
-        height: 44px;
-        background: rgba(255, 163, 43,0.5);
-        position: absolute;
-        display: block;
-        top: -5px;
-        left: -7px;
-        border-radius: 0% 0% 0% 0% / 0% 30% 0% 0%;
-        z-index: -1;
-        transition-duration: 0.5s;
-
-    }
-    nav a:hover::before{
-        border-radius: 0% 30% 0% 0% / 0% 0% 0% 0%;
-        width: 80%;
-    }
-    nav a:active::before{
-        width: 100%;
-        border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
-    }
-    h1{
-        font-size: 0;
-    }
-    .headerLogo{
-        width: 100%;
-        max-width: 200px;
-    }
-    .hideNav{
-        transform: translateX(-100%);
-    }
-
-    /* 主選單切換紐 */
-    .navbtn{
-        position: absolute;
-        background: url(img/paperPink.png);
-        /* background:yellow; */
-        top: 0;
-        right: -56px;
-        color:#114d7c;
-        line-height: 0;
-        border-radius: 0 15px 15px 0;
-        transform: rotate(0);
-        opacity: 1;
-        transition-duration: 0.5s;
-    }
-    .navSwitchbars{
-        width: 56px;
-        height: 56px;
-        position: relative;}
-    .navSwitchbar{
-        position: absolute;
-        width: 36px;
-        height: 2px;
-        background: #114d7c;
-        top: 50%;
-        left: 50%;
-        transform-origin: 0% 0%;
-        transition-duration: 0.5s;
-    }
-    .navSwitchbar:nth-child(1){
-        transform: rotate(0deg) translateX(-50%) translateY(-12px);
-    }
-    .navSwitchbar:nth-child(2){
-        transform: rotate(0deg) translateX(-50%) translateY(-50%);
-        opacity: 1;
-    }
-    .navSwitchbar:nth-child(3){
-        transform: rotate(0deg) translateX(-50%) translateY(10px);
-    }
-    /* 主選單打開時按扭轉為X */
-    .navbtnIn{right: 0px;} /*滿版的主選單使用*/
-    .navSwitchbar.closeNav:nth-child(1){
-        transform: rotate(135deg) translateX(-50%) translateY(-50%);
-    }
-    .navSwitchbar.closeNav:nth-child(2){
-        transform: rotate(180deg) translateX(-50%) translateY(-50%);
-        opacity: 0;
-    }
-    .navSwitchbar.closeNav:nth-child(3){
-        transform: rotate(225deg) translateX(-50%) translateY(-50%);
-    }
-
-    /* 主選單 */
-    nav a{
-        font-size: 1rem;
-        color:#114d7c;
-        display: block;
-        margin: 10px 4%;
-    }
-    .moreNav::before{
-        content:'---';
-        display: block;
-        margin: 10px 4%;
-    }
-    /* 下方下載列  手機時顯示在banner*/
-    .headerDown{margin-top: 20px;}
-    .headerDown p{
-        text-align: center;
-        font-size: 1rem;
-        margin: 10px 0;
-        font-weight: bold;
-    }
-    .textF{
-        color:#114d7c;
-    }
-    .headertextHi{
-        color: #ffa32b;
-        text-shadow: 2px 2px 2px #fffcf2,
-                    -2px -2px 2px #fffcf2,
-                    -2px 2px 2px #fffcf2,
-                    2px -2px 2px #fffcf2;
-    }
-    .headerDownLink{
-        width: 60%;
-        max-width: 150px;
-        display: block;
+    .banner,.char,.news,.download,.footerContent{
+        width: 960px;
         margin: auto;
     }
-
-/* banner */
+    /* 第一屏 */
     .banner{
+        height: 750px;
         position: relative;
-        padding-top: 60px;
     }
-    .bannerBgPhone{
+
+    .banFrame{
+        width: 830px;
+        height: 630px;
+        background: #fff9e0;
+        margin: auto;
         position: relative;
-        width: 100%;
-        margin: 10px 0;
-        /* text-align: center; */
-        /* box-sizing: border-box; */
-        /* overflow: hidden; */
+        top: 30px;
+        left: 30px;
+        transform: rotate(5deg);
+        box-shadow:0 0 30px #666;
     }
-    .banBgAll{
-        width: 100%;
+    .slogan{
+        font-size: 20px;
+        float: left;
+        width: 486px;
+        margin: 0 0 0 20px;
+        letter-spacing: 2px;
+        color:#114d7c;
     }
-    .banLogo{
+    .banPho{
+        width: 790px;
+        margin: 20px 20px 10px 20px;
+    }
+    .banDownload{
+        width: 130px;
+        margin: 10px 0px 10px 10px;
+    }
+    .banDownload:hover{
+        animation: rotate 1s ;
+    }
+
+/* 人物介紹 */
+    .char{position: relative;height: 750px;}
+    
+    .charBg{
+        left: -100px;
+        top: 10px;
+        z-index: -6;
+    }
+    .char .title, .news .title{
+        margin-right: 50%;
+        text-align: right;
+    }
+    .evan,.nong{
+        display: block;
+        position: absolute;
+        background: url(img/homeCharPaper.png) left bottom;
+        background-size:cover;
+        width: 460px;
+        height: 480px;
+        padding: 50px 70px;
+        box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+    }
+    .evan{
+        top: 100px;
+        left: 30px;
+        z-index: 1;
+        transform: rotate(-5deg);
+    }
+    .evan .name::before,.nong .name::before{
+        content: "";
+        display: inline-block;
+        background: rgba(255, 163, 43, 0.4);
+        position: absolute;
+    }
+    .evan .name::before{
+        width: 290px;
+        height: 42px;
+        top: 80px;
+        left: 70px;
+        z-index: -1;
+    }
+    .name{
+        color:#114d7c;
+        font-size: 24px;
+        padding-bottom: 30px;
+    }
+    .name strong{
+        font-size: 60px;
+        margin: 0 20px 0 0;        
+    }
+    .talk{
+        width: 250px;
+    }
+    .sample{margin: 0px 170px;}
+    .desc{
+        color: #114d7c;
+        font-size: 18px;
+        line-height: 2;
+        letter-spacing: 3px;
+        margin: 15px 0;
+    }
+    .char5{
+        width: 200px;
+        position: absolute;
+        right: -15px;top: -25px;
+        transform: rotate(5deg);
+    }
+    /* 濃濃 */
+    .nong{
+        top: 90px;
+        left: 170px;
+        z-index: -5;
+        transform: rotate(2deg);
+    }
+    /* .nong:hover .evan{left: -100px;} */
+    .char2{
+        width: 270px;
+        position: absolute;
+        right: -40px;top: -25px;
+    }
+    .nong .name::before{
+        width: 300px;
+        height: 30px;
+        top: 90px;
+        left: 65px;
+        z-index: -1;
+    }
+    /* 後面的紙 */
+    .charPapers{
+        display: block;
+        position: absolute;
+        padding: 50px 50px;
+        left: 110px;top: 0;
+        z-index: -6;
+    }
+    /* 遊戲特色 */
+    .feature{
+        height: 750px;
+        background: url(img/paperLineBlue.png) no-repeat;
+        background-size: 100%;
+        width: 1000px;
+        margin: auto;
+        position: relative;
+        /* z-index: -7; */
+        transform: rotate(-10deg);
+    }
+    .feature .title{
+        margin-left: 50%;
+        text-align: left;
+    }
+    .phone{
         position: absolute;
         width: 300px;
+        height: 630px;
+        top: 20px;
+        left: 180px;
+        transform: rotate(5deg);
+    }
+    .iX,.screen{ 
+        position: absolute;
+    }
+    .iX{
+        width: 105%;
         z-index: 1;
-        top: -30px;
-        left: 0;right:0;
-        margin: auto;
-        
+        /* left: 100px; */
     }
-    .bannerBub{
-        position: absolute;
-        width: 120px;
-        height: 120px;
-        /* border: rgba(255, 163, 43,0) 5px solid; */
-        border-radius: 50% 50% 50% 50%;
-        background: rgba(255, 163, 43,0.8);
-        overflow: hidden;
-        bottom: 0;
-        right: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-    .bannerBub p{
-        color: #fffcf2;
-        font-weight: bold;
-        font-size:0.75rem;
-        text-align: center;
-        padding: 15px 5px 5px 5px;
-    }
-    .bannerBub img{
-        width: 100%;
-    }
-    .wrapText{display: block;}
-    .textTypeB{
-        color: #114d7c;
-        font-size: 1rem;
-        letter-spacing: 0.1rem;
-    }
-    .textTypeB .hiLi{
-        color: #ffa32b;
-        font-weight: bold;
-    }
-    .textTypeO{
-        background:#ffa32b;
-        color:#fffcf2;
-        font-size: 1.25rem;
-    }
-    .banner .textTypeO{
-        /* width: 60%; */
-        text-align: center;
-        margin:120px auto 0 auto;
-        padding: 10px;
-    }
-    .banner .textTypeB{
-        width: 70%;
-        margin: 20px auto 0 auto;
-        background: #fffcf2;
-        padding: 10px;
-        border: #114d7c solid 2px;
-        /* position: absolute; */
-        z-index: 1;
-        left: 0;right: 0;
+    .screen{
+        width: 87%;
+        height: 87%;
+        border-radius: 30px;
+        left: 26px;
+        top: 28px;
     }
 
-    .banDown,.download{
-        margin: 20px;
-        text-align: center;
-    }
-    .banDown p,.download p{
-        color: #fffcf2;
-        font-weight: bold;
-    }
-    .banDown p:last-of-type,.download p:last-of-type{
-        margin-bottom: 20px;   
-    }
-    .banDown>img,.download>img{
-        width: 100%;
-        max-width: 350px;
-    }
-    .banDownLink img{
-        width: 150px;
-        padding: 0 10px;
-    }
-
-/* 各區塊標題文字 */
-    .newsTitle,.storyTitle,.charTitle,#feaTitle{
-        background: url(img/titleBg.svg) no-repeat;
-        background-size: contain;
-        font-size: 1.5rem;
-        color: #114d7c;
-        margin: 50px 0 -30px 10px;
-        position: relative;
-        text-align: center;
-        z-index: 1;
-        font-weight: bold;
-    }
-    .charTitle{margin: 50px 0 0px 10px;}
-    .newsTitle p,.storyTitle p,.charTitle p,#feaTitle p{
-        width: 90px;
-        height: 40px;
-        padding-top: 5px;
-    }
-    .newsTitle h2,.storyTitle h2,.charTitle h2,#feaTitle h2{
-        width: 150px;
-        height: 45px;
-        margin-left: 22.5px;
-    }
-
-
-
-/* 最新消息 */
-    /* 每則新聞，手機板沒有做遮罩所以其實可以用border就好 */
-    .newsblock{
-        background: #114d7c;
-        margin: 5px 10px;
-        padding: 30% 3px 3px 3px;
-        position: relative;
-        /* float: left; */
-        /* 遮罩如果要改變... */
-        width: calc(100% - 26px );
-        -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
-        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
-    }
-    /* 背景圖片在此做出邊框效果(考慮遮罩) */
-    .newsblock::before{
-        content: '';
-        position: absolute;
-        width:calc(100% - 6px) ;
-        height:calc(100% - 6px);
-        top: 3px;
-        left: 3px;
-        z-index: -1;
-        /* 遮罩如果要改變 */
-        -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
-        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
-    }
-    .newsblock:hover{
-        background:#fffcf2;
-
-    }
-    .newsblock::after{
-
-    }
-
-
-    /* 各則新聞*/
-    .newsblock1::before{
-        background: url(img/newsbg1.png) top right;
-        background-size: cover;
-    }
-    .newsblock2::before{
-        background: url(img/newsbg2.png)  50% 25%;
-        left: 3px;
-        background-size: cover;
-    }
-    .newsblock3::before{
-        background: url(img/newsbg3.png) 50% 25%;
-        background-size: cover;
-    }
-    .aliBot{
-        position: absolute;
-        bottom: 3px;
-    }
-    .news .textTypeO{
-        padding: 0 10px 0 25px;
-        display: inline-block;
-        font-weight: bold;
-    }
-    .newsblock p{
-        padding-left:25px;
-        width: 100%;
-        color: #fffcf2;
-    }
-    .newsblock1 p{
-        text-shadow: 0 0 4px #7b1825,
-                     0 0 6px #7b1825,
-                     0 0 8px #7b1825;
-    }
-    .newsblock2 p{
-        text-shadow: 0 0 4px #473936,
-                     0 0 6px #473936,
-                     0 0 8px #473936;
-    }
-    .newsblock3 p{
-        text-shadow:0 0 4px #663a45,
-                    0 0 6px #663a45,
-                    0 0 8px #663a45 ;
-    }
-
-    /* .news::after{
-        content: '';
-        display: block;
-        clear: both;
-    } */
-
-/* 遊戲故事 */
-    .storyWrap{
-        position: relative;
-        padding-top: 50px;
-    }
-    /* 故事圖片遮罩與邊框 */
-    .storyImgSchool{
-        background: url(img/StorySchool.png) center ;
-        background-size: cover;
-        /* padding: 80% 0px 3px 0px; */
-        height: 500px;
-        border-top: #114d7c 2px solid;
-        border-bottom: #114d7c 2px solid;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        z-index: -1;
-        font-size: 0;
-
-    }
-    .storyImgRoom{
-        background: rgba(17, 77, 124,0.8);
-        margin: 5px 0;
-        /* padding: 1px; */
-        height: 200px;
-        position: absolute;
-        top: 30%;
-        right: 0;
-        /* 遮罩如果要改變... */
-        width: 70%;
-        -webkit-clip-path: polygon(10% 0, 100% 0%, 100% 100%, 0% 100%);
-        clip-path: polygon(10% 0, 100% 0%, 100% 100%, 0% 100%);
-        z-index: -1;
-    }
-    
-    /* 背景圖片在此做出邊框效果(考慮遮罩) */
-    .storyImgRoom::before{
-        content: '';
-        position: absolute;
-        width:calc(100% - 0px) ;
-        height:calc(100% - 4px);
-        top: 2px;
-        left: 2px;
-        z-index: -1;
-        /* 遮罩如果要改變 */
-        -webkit-clip-path: polygon(10% 0, 100% 0%, 100% 100%, 0% 100%);
-        clip-path: polygon(10% 0, 100% 0%, 100% 100%, 0% 100%);
-        background: url(img/StoryRoom.png) center;
-        background-size: cover;
-    }
-
-    .story .textTypeB{
-        background: rgba(255, 252, 242,1);
-        border: #114d7c 3px solid;
-        /* position: absolute; */
-        padding: 5px;
-    }
-    .storyP1{
-        max-width: 280px;
-        margin: 40px 0% 60px 40%;
-    }
-    .storyP2{
-        width: 230px;
-        margin: 0 50% -2px 3%;
-    }
-    .storyP3{
-        width: 230px;
-        margin: 0 40% 30% 6%;
-    }
-    .storyP4{
-        margin: 20px auto 0 auto;
-        max-width: 500px;
-    }
-    /* .storyWrap::after,.storyWrap::before{
-        content: '';
-        border: rgba(17, 77, 124,0.8) 2px solid;
-        background: rgba(255, 252, 242,0.8);
-        position: absolute;
-    }
-    .storyWrap::before{
-        width: 55%;
-        height: 25px;
-        top:  465px;
-        left: 27%;
-        z-index: 1;
-    }
-    .storyWrap::after{
-        width: 60%;
-        height: 50px;
-        top: 420px;
-        left: 10%;
-        z-index: -1;
-    } */
-
-/* 角色列表 */
-    .charpages{position: relative;}
-    .charpage,.charpagestart{
-        background: #ffe9c7 url(img/paperorg.png) no-repeat center;
-        background-size: contain;
-        padding: 10px;
-        min-width: 300px;
-        max-width: 500px;
-        margin: auto;
-        position: relative;
-        display: none;
-    }
-    .charName{
-        font-size: 1.5rem;
-        color:#114d7c;
-        background:rgba(255, 163, 43,0.4);
-        /* border: #fffcf2 2px solid; */
-        padding: 5px 10px;
-        /* display: inline-block; */
-        width: 220px;
-        font-weight: bold;
-        margin-top: 40px;
-    }
-    .charName span{font-size: 1.25rem}
-    .charpage .textTypeB,.charpagestart .textTypeB{
-        background: rgba(255, 252, 242,0.9);
-        border: #114d7c 2px solid;
+    .featureMsg{
+        width: 380px;
+        height: 330px;
+        background: rgba(255,249,224,0.8);
         border-radius: 10px;
-        padding: 10px;
-        margin: 50px 12px;
-        width: 260px;
-        font-size: 0.75rem
+        padding: 20px;
+        letter-spacing: 2px;
+        line-height: 1.5;
+        position: relative;
+        left: 45%;
+        top: 100px;
+        z-index: 1;
+        transform: rotate(10deg);
     }
-    .charpage .charIntro1{
-        margin-top: -10px;
-    }
-    .charVoice{
-        background: rgba(255, 252, 242,0.9);
-        border: #114d7c 2px solid;
-        border-radius: 40% 60% 40% 60% /55% 45% 60% 40%;
-        padding-top: 10px;
-        text-align: center;
-        width: 260px;
-        margin-left: 10px;
-    }
-    .charVoice img{
-        width: 70%;
-    }
-
-    /* 試聽按鈕 */
-    .sampleVoice{
-        color: #ffa32b;
-        border: #ffa32b solid 3px;
-        border-radius:14px;
-        display: inline-block;
-        text-align: center;
-        background: rgba(255, 252, 242,1);
-        width:90px;
-        letter-spacing: 3px;
-        /* text-shadow: 0px 0px 3px #aaa; */
-        box-shadow: 1px 1px 5px #aaa;
-        transition: 0.3s;
-    }
-    .sampleVoice i{
-        font-size: 25px;
-        vertical-align: -6px
-    }
-    .sampleVoice:hover{
-        color: rgba(255, 252, 242,1);
-        background: #ffa32b;
-    }
-    .charFullBody{
-        width: 170px;
-        /* max-width: 170px; */
-        position: absolute;
-        top: 5%;
-        right: 10px;
-        /* z-index: -1; */
-    }
-
-    .charClose{
-        position: absolute;
-        top: 0;
-        right: 0;
-        
-    }
-    .charClose i{
+    .feature strong{font-weight: bold;}
+    .feature .highlight2{
         color: #114d7c;
-        font-size: 36px;
+        font-size: 24px;
+        margin: 0 0 10px 0;
     }
-    .charHide,.charpagestart{
-        display: none;
-    }
-    /* 角色連結 */
-    .charbooklinks li{
-        width:calc(33.3333% - 24px);
-        float: left;
-        margin: 10px;
-        border: #114d7c 2px solid;
-    }
-    .charbooklinks a {
-        display: inline-block;
-        width: 100%;
-        padding-top: 100%;
-        /* background: gray; */
-        position: relative;
-        vertical-align:middle;
-
-    }
-    .comming::after{
-        content: 'comming soon...';
-        color: #fffcf2;
+    .content{
+        color: #114d7c;
         font-size: 16px;
-        padding: 10px;
-        box-sizing: border-box;
+    }
+    .feature .more{
+        right: -30px;
+        bottom: 15px;
+    }
+/* 最新消息 */
+    .news{position: relative;height: 750px;}
+    .newspaper{
+        width: 860px;
+        height: 750px;
+        background: url(img/homeNewspaper.png) no-repeat;
+        background-size: 100%;
+        position: absolute;
+        top: 50px;left: 0;
+        overflow: hidden;
+        margin: 50px;
+        z-index: -5;
+    }
+    .newsBg{z-index: -6;left: -30px;}
+    .npcWeekly{
+        font-size: 16px;
+        color: #114d7c;
+        /* text-align: center; */
+        margin: 30px 0 20px 355px;
+    }
+    .npcWeekly strong{font-size: 36px;}
+    .newspaper article{float: left;}
+    .content{text-align: justify;}
+    .column1{
+        width: 200px;
+        height: 400px;
+        margin: 10px;
+        overflow: hidden;
+    }
+    .column2{
+        width: 400px;
+        margin: 10px;
+        height: 400px;
+        overflow: hidden;
+    }
+    .highlight1{font-size: 36px;color: #114d7c}
+    .news .highlight2{
+        color: #114d7c;
+        font-size: 24px;
+        /* margin: 0 0 10px 0; */
+    }
+    .column2 img{width: 400px;}
+    .column4{
+        margin: 10px;
+    }
+    .column4 img{width: 380px;float: left;}
+    .column4 .content, .column4 .highlight2{
+        margin: 0 10px;
+        width: 440px;
+        float: left;}
+    .newspaper::after{
+        content: "";
         display: block;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: rgba(17, 77, 124, 0.5);
-        top: 0;
-
+        position:absolute;
+        width: 860px;
+        height: 200px;
+        bottom: 0;left: 0;
+        background-image: linear-gradient(0deg, #fff9e0 10%, transparent 100%)
     }
-    .charbooklinks span{
-        position: absolute;
-        z-index: 1;
-        bottom: 0;
-        padding: 0 10px;
-        background:#ffa32b;
-        color: #fffcf2;
-        font-size: 1.25rem;
+    .news .more{
+        right: 0;bottom: 50px;
     }
-    .charbooklinkimg{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        font-size: 0px;
-    }
-    .charbooklinkimg img{
-        width: 100%;
-        }
-    
-/* 遊戲特色 */
-    .gameFea{
-        position: relative;
-        margin: auto;
-        }
-    
-    .feaDescWrap{
-        overflow: hidden;
-        max-width: 500px;
-        width: 90%;
-        height: 850px;
-        position: relative;
-        margin: auto;
-    }
-    .feaDesc{
-        border-radius: 20px;
-        overflow: hidden;
-        position: absolute;
-        transition-duration: 0.5s;
-    }
-    .feaDesc .textTypeO{
-        padding: 10px;
-        /* background: rgba(255, 163, 43,0.8) */
-    }
-    .feaDesc .textTypeB{
-        background: rgba(255, 252, 242,0.8);
-        padding: 10px;
-    }
-    .feaDesc img{
-        width: 100%;
-        vertical-align: middle;
-    }
-    .gameFea::before{
-        content: '<';
-        top: 425px;
-    }
-    .gameFea::after{
-        content: '>';
-        right: 0;
-        top: 425px;
-    }
-    .gameFea::after,.gameFea::before{
-        background: rgba(255, 252, 242,0.8);
-        border-radius: 50%;
-        text-align: center;
-        line-height: 48px;
-        width: 48px;
-        height: 48px;
-        color:rgb(255, 163, 43) ;
-        border:3px solid rgb(255, 163, 43) ;
-        position: absolute;
-        z-index: 1;
-        box-shadow:0 0 5px rgba(17, 77, 124,0.6);
-
-    }
-    .feaSlideLrwd{
-        transform: translateX(-100%);
-    }
-    .feaSlideRrwd{
-        transform: translateX(100%);
-    }
-
-/* 頁尾 */
-    footer{
-        width: 100%;
-        height: 70px;
-        background:#114d7c;
-    }
-    footer table{
-        width: 100%;
-    }
-    .footerLogo{
-        width: 50px;
-        margin: 10px 10px 0 10px ;
-        vertical-align: bottom;
-    }
-    footer .white{
-        color: #fff9e0;
-        vertical-align: bottom;
-        font-size: 0.75rem;
-    }
-    footer a{
-        color: #fff9e0;
-        text-decoration: underline;
-        font-size: 0.75rem;
-    }
-    .rate12{
-        width: 50px;
-        vertical-align: bottom;
-    }
-    .footerContent{
-        margin: auto;
-    }
-    .rwdHide{
-        display: none;
-    }
-
-
+    .newspaper i{vertical-align: middle;}
     
 
     </style>
-    
-    <link rel="stylesheet" href="sc992.css">
 </head>
 <body>
-    <!-- <div class="loadingWrap">
-        <div class="loading">
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-        </div> -->
-    </div>
-    <header class="hideNav">
-            <div class="navbtn PChide">
-                <div class="navSwitchbars">
-                    <div class="navSwitchbar"></div>
-                    <div class="navSwitchbar"></div>
-                    <div class="navSwitchbar"></div>
-                </div>
-            </div>
-            <h1>
-                <a href="javascript:;">
-                <img class="headerLogo" src="img/logoBM.png" alt="四月六日未完待續Logo">
-                </a>
-            </h1>
+    <header>
+        <a href="index.html"><img src="img/logoM.png" alt="Logo" class="logo"></a>
         <nav>
-            <ul>
-                <a class="menuNews" href="javascript:;"><li>最新活動消息</li></a>
-                <a class="menuStory" href="javascript:;"><li>遊戲故事</li></a>
-                <a class="menuChar" href="javascript:;"><li>登場人物</li></a>
-                <a class="menuFea" href="javascript:;"><li>遊戲特色</li></a>
-                <a class="menuDown" href="javascript:;"><li>下載</li></a>
-                <!-- <div class="moreNav"></div>
-                <a href="javascript:;"><li>活動消息列表</li></a>
-                <a href="javascript:;"><li>人物聲優介紹</li></a> -->
+            <ul class="menu">
+                <li><a href="info.html">遊戲介紹</a></li>
+                <li><a href="media.html">校園畫展</a></li>
+                <li><a href="news.html">最新消息</a></li>
+                <li><a href="forum.html">討論區</a></li>
             </ul>
         </nav>
-        <div class="headerDown rwdHide">
-            <p class="textF">
-                「四月六日未完待續」<br>
-                戀愛遊戲全 9 集
-            </p>
-            <p class="headertextHi">第一集好評發售中！</p>
-            <a class="headerDownLink" href="javascript:;"><img src="img/app-store-badge.svg" alt="App Store 下載連結"></a>
-            <a class="headerDownLink" href="javascript:;"><img src="img/google-play-badge.svg" alt="Google Play 下載點"></a>
-        </div>
     </header>
-<div class="marLforHeader">
-    <div class="banner" id="banner">
-        <div class="banTexts">
-            <p class="textTypeO">出現在新生活的九位少年，一段青澀酸甜的愛情故事</p>
-            <p class="textTypeB">
-                才剛轉學，玩家就被指派加入新學校-<strong class="hiLi">NPC高中的校慶籌備小組</strong>，<br>妳是否能融入、並順利完成籌備任務！？
-            </p>
-            <p class="textTypeW rwdHide">「我為起始，而妳卻不是結束，我和妳的故事，未完待續...」</p>
-        </div>
-        <div class="bannerWrap ">
-            <img src="img/banBg.png" alt="Banner" class="bannerBg rwdHide" >
-            <div class="layer1 banchar char1 rwdHide">
-                <img src="img/ban1h.png" alt="Kun1">
-                <img src="img/ban1.png" class="bancharimg" alt="Kun2">
-            </div>
-            <div class="layer2 banchar char2 rwdHide">
-                <img src="img/ban2h.png" alt="Nong1">
-                <img src="img/ban2.png" class="bancharimg" alt="Nong2">
-            </div>
-            <div class="layer2 banchar char3 rwdHide">
-                <img src="img/ban3h.png" alt="Adam1">
-                <img src="img/ban3.png" class="bancharimg" alt="Adam2">
-            </div>
-            <div class="layer2 banchar char4 rwdHide">
-                <img src="img/ban4h.png" alt="Justin1">
-                <img src="img/ban4.png" class="bancharimg" alt="Justin2">
-            </div>
-            <div class="layer1 banchar char5 rwdHide">
-                <img src="img/ban5h.png" alt="Evan1">
-                <img src="img/ban5.png" class="bancharimg" alt="Evan2" id="ban5img">
-            </div>
-            <div class="layer2 banchar char6 rwdHide">
-                <img src="img/ban6h.png" alt="Theo1">
-                <img src="img/ban6.png" class="bancharimg" alt="Theo2">
-            </div>
-            <div class="layer3 banchar char7 rwdHide">
-                <img src="img/ban7h.png" alt="L.Ghost1">
-                <img src="img/ban7.png" class="bancharimg" alt="L.Ghost2">
-            </div>
-            <div class="layer3 banchar char8 rwdHide">
-                <img src="img/ban8h.png" alt="Boogie1">
-                <img src="img/ban8.png" class="bancharimg" alt="Boogie2">
-            </div>
-            <div class="layer3 banchar char9 rwdHide">
-                <img src="img/ban9h.png" alt="Azora1">
-                <img src="img/ban9.png" class="bancharimg" alt="Azora2" id="ban9img">
-            </div>
-            <svg version="1.1" class="rwdHide" id="bannersvg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-        viewBox="0 0 1729 1190" style="enable-background:new 0 0 1729 1190;" xml:space="preserve">
-
-            <path class="st" d="M621.4,1034L621.4,1034c-8.9,21.2-19.2,50.4-36.2,64.1c-7.3,3.9-14.2,7.5-21.2,11.2c-3.9,3.1-4.5,8.4-10.1,10.1
-            c-5,0.6-10.1,0.8-15.1,1.1c-11.2,7.3-22.1,14.8-33.2,22.1c-7.3-0.6-14.8-1.4-22.1-2c-32.1-4.2-46.4-12.8-69.3,10.1
-            c-0.3,9.2,1.4,13.1,5,18.2c8.7,3.1,16.5,6.1,24,11.2v3.9h-95.5v-2c-0.6-4.5-1.4-9.2-2-14c-5.3-7.8-13.4-12.3-17-23.2
-            c-8.1-24-7.8-49.7-21.2-70.4c-26.3,8.4-57.8-19-62.3-36.3c-4.5-16.8,6.1-27.9,5-41.3c-1.1-16.2-2-32.1-3.1-48.3
-            c2.5-12.3,9.8-18.4,15.1-27.1c5-9.5,10.1-19.3,15.1-29c14-19.6,51.7-25.4,71.5-39.1v-7c-9.5-7-23.2-15.1-31.3-24
-            c-13.1-14.2-19-31.3-33.2-44.1c3.9-11.2,3.6-18.2,7-30.2c-0.6-4.5-1.4-9.2-2-14c3.6-13.4,23.7-28.2,37.1-32.1h18.2
-            c2.2-2.8,4.2-5.9,6.1-8.9c3.9-1.1,7.5-2,11.2-3.1c9.2,0.8,33.8,10.1,36.9,15.1c4.5,7.8,17,27.7,25.1,32.1c-1.7,1.7-3.4,3.4-5,5
-            c10.9,21.5,0.3,56.4,0,86.6c-1.1-0.6-2-1.4-3.1-2c-1.1,5.6-2,10.9-3.1,16.2c2.2,1.1,4.2,2.5,6.1,3.9c7.3,0.6,14.2,0.8,21.2,1.1
-            c28.2,5.9,64.5,9.8,85.5,24c2.7,1.8,12.6,14.2,21.3,25.8c3.2,4.2,6.2,8.4,8.7,11.9c0,0,0,0,0.1,0.1c0.3,0.4,0.6,0.8,0.8,1.2
-            c0.1,0.1,0.2,0.3,0.3,0.4c0.2,0.3,0.4,0.6,0.7,0.9c0.1,0.2,0.3,0.4,0.4,0.5c0.2,0.3,0.4,0.5,0.5,0.8c0.1,0.2,0.3,0.4,0.4,0.6
-            c0.2,0.2,0.3,0.4,0.4,0.6c0.1,0.2,0.3,0.4,0.4,0.6c0.1,0.2,0.2,0.4,0.4,0.6c0.1,0.2,0.3,0.4,0.4,0.6c0.1,0.2,0.2,0.3,0.3,0.5
-            c0.1,0.2,0.2,0.4,0.3,0.5c0.1,0.1,0.2,0.3,0.2,0.4c0.1,0.2,0.2,0.3,0.3,0.5c0,0.1,0.1,0.2,0.1,0.2c0.1,0.2,0.2,0.4,0.3,0.6
-            c2.2,7.3,4.2,14.8,6.1,22.1c1.2,1.8,2.3,3.7,3.5,5.5c1.1,1.8,2.3,3.7,3.4,5.6l0,0c12.9,21.5,24.8,44.2,37.2,65.8
-            c0.3,0.6,0.6,1.1,1,1.7c1,1.8,2.1,3.6,3.1,5.4c0.4,0.6,0.8,1.3,1.1,1.9c1.4,2.3,2.7,4.6,4.1,6.8c0,0,0,0,0,0
-            C621.4,1033.9,621.4,1033.9,621.4,1034C621.4,1034,621.4,1034,621.4,1034z M558.4,913.5c-0.2-0.3-0.3-0.5-0.5-0.8
-            C558.1,913,558.2,913.2,558.4,913.5z M557.5,912.2c-0.2-0.3-0.4-0.6-0.7-0.9C557.1,911.6,557.3,911.9,557.5,912.2z M559.3,914.7
-            c-0.1-0.2-0.3-0.4-0.4-0.6C559,914.3,559.1,914.5,559.3,914.7z M547,897.7c3.2,4.2,6.2,8.4,8.7,11.9
-            C553.2,906.1,550.2,902,547,897.7z M556.6,910.8c-0.3-0.4-0.5-0.8-0.8-1.2C556,910.1,556.3,910.5,556.6,910.8z M621.4,1034
-            C621.4,1034,621.4,1034,621.4,1034L621.4,1034C621.4,1034,621.4,1034,621.4,1034z M616.2,1025.1c0.4,0.6,0.8,1.3,1.1,1.9
-            C617,1026.4,616.6,1025.8,616.2,1025.1z M613.1,1019.7c-0.3-0.6-0.6-1.1-1-1.7C612.5,1018.6,612.8,1019.2,613.1,1019.7z
-                M621.5,1033.9C621.4,1033.9,621.4,1033.9,621.5,1033.9C621.4,1033.9,621.4,1033.9,621.5,1033.9L621.5,1033.9z M559.7,915.3
-            c0.1,0.2,0.2,0.4,0.4,0.6C559.9,915.7,559.8,915.5,559.7,915.3z M575,952.3c-1.1-1.9-2.3-3.7-3.4-5.6
-            C572.7,948.5,573.8,950.4,575,952.3L575,952.3z M560.7,916.9c-0.1-0.1-0.2-0.3-0.3-0.5C560.5,916.6,560.6,916.8,560.7,916.9z
-                M561.5,918.3c0,0.1,0.1,0.2,0.1,0.2C561.6,918.5,561.6,918.4,561.5,918.3z M561,917.4c0.1,0.1,0.2,0.3,0.2,0.4
-            C561.2,917.7,561.1,917.6,561,917.4z"/>
-            <path class="st" d="M1345.1,1183.9h8l0,0c-21.6,0-43.2,0-64.5,0c0-0.3,0-0.6,0-1.1c4.2-8.4,6.2-14.3,14-19.1
-            c-14.6-23,3.1-37.9,9-50.5c1.1-8.1,2-16.3,3.1-24.1c-2.2-13.2-4.8-26.4-7-39.3c-5.6-32.5-4.2-78.5,1.1-107.1
-            c-31.7,0.8-97.9,7.9-109.1-14c-14.6-29.2,45.4-92.5,56.6-111.3c0-0.3,0-0.6,0-1.1c-5,0.3-10.1,0.6-15.1,1.1c0-0.3,0-0.6,0-1.1
-            c12.9-32.2,28.6-57.2,44.3-85.8c-2.2-11.5-17.7-35.3-10.1-47.4c3.9-2,8.1-3.9,12.1-6.2c5.3-5.3,2.2-9.8,12.1-9
-            c-2.5-18.8-5.9-37.9,0-57.5c2-6.7,8.4-13.7,10.1-22.2c3.4-16.8-6.7-30.6,0-44.3c5.9-12.3,18.8-14.5,26.7-25.1
-            c-8.4-19.3-15.5-7.2-24.7-17.6c-9.5-10.9-11.4-22.3-18.4-36.8c-3.6-4.5-6-13-9.9-17.5c-14-33.9,16.3-51,33.6-61.7
-            c35.9,0.3,57.8,5.6,64.5,43.5c2.8,15.1-5.6,27.3-3.1,45.4c2.5-2,2.5-2.8,6.2-3.9c6.2,2.5,15.7,14.3,20.2,14c9-7.6,23-21.3,41.5-13.2
-            c5,10.1,10.1,20.2,15.1,30.3c2.2,8.1-2.2,17.7-1.1,24.1c2.1,9.8,5.7,20.8,9.3,32.1c-11.7,3.9-23.3,6.8-33.2,7.3
-            c-4.8,8.7-2,18.5-3.9,29.1c-2.2,10.9-9.5,28.8-12,39.2c-0.3,11.8-0.6,23.5-1.1,35.3c-4.8,22.4-13.2,49-17.1,69.4
-            c-5.3,26.6,15.7,51.2,13.2,69.4c-3.9,28.5-38.1,43.9-44.2,70.5c2,2,3.9,3.9,6.2,6.2c-1.4,3.9-2.8,8.1-3.9,12
-            c6.7,3.1,13.4,6.2,20.1,9c-3.4,38.1-22.7,76.7-33.3,110.8c-0.3,9.8-0.6,19.6-1.1,29.1C1350.7,1085.4,1344.2,1135.5,1345.1,1183.9z"
-            />
-            <path class="st" d="M819.6,1031.6c-28.9-0.8-58.1-3.6-84-8.9c-16.7-1.1-33.4-1.9-50-3.1c-10.6-0.6-20.9-1.4-31.1-1.9
-            c-11.1,5.4-22.1,10.8-33,16.4c0-0.1,0-0.1,0.1-0.2c-6-9.9-11.9-20.2-17.6-30.6c0.2-0.2,0.4-0.4,0.6-0.6c-1.9-7-7.5-60.3-8.1-61.2
-            c-7.3,4.2-12.9,8.6-21.4,10.7c-2.2-3.7-4.5-7.4-6.9-11.1c-2-7.3-3.9-14.8-6.1-22.1c-1.1-2.4-7.7-11.7-15-21.4
-            c3.5-25,13.5-51.6,17.4-66.3c3.6-13.9,10-41.4,20.9-49.2c24.2-16.7,67.8-21.1,86.2-43.9c16.4-20,5.6-43.6,16.1-63.9
-            c9.5-18.6,27.5-18.9,45-30c41.4,4.4,69.2,25,68.9,72h-0.3c-0.6-1.1-0.8-1.9-1.1-3.1c0.3,20.3-11.1,45-25,51.2
-            c-2.2,0.6-4.2,0.8-6.1,1.1v-1.1c1.1-1.1,2.5-2.5,3.9-3.9c2.2-5.6,4.7-10.8,7-16.1c-9.2,6.4-23.6,17.2-26.1,26.1
-            c12.5,1.9,21.4,15.8,27,25c11.1-4.7,21.7,6.1,28.9,12c0.6,18.3,8.1,23.1,12,35c11.1,34.2,0.8,68.9-17,86.2
-            c-15.3-0.3-21.4-7.5-31.1-13.1c-0.6,5-1.4,10-1.9,15c-7.5,1.9-14.7,5-18.1,11.1c-0.6,2.8-0.8,5.8-1.1,8.9c7.2,1.7,14.2,3.3,21.1,5
-            c0.6,0.6,0.8,1.4,1.1,1.9c-0.3,10.6-5.3,15-5,22c5,2.2,10,4.7,15,7c1.1,5.6,1.9,11.4,3.1,17c10.6,7.2,24.9,14.7,35.4,21.7
-            C828.2,1030.1,832.4,1032.6,819.6,1031.6z M890.5,1088.6c1.1,18.9,1.9,38.1,3.1,57h1.1c3.3-10.8,9.7-17,12-27
-            C909.1,1110.5,897.7,1091.6,890.5,1088.6z M875.5,1095.8h-2.8v0c-2.2,8.9-5.6,23.1,1.1,28.9c-1.4,2.2-2.8,4.7-3.9,7
-            c-0.3,2.5-3.1-3.3-6.1-5c-15.3,13.1-28.4,32.8-46.1,43.1c-0.3,3.6-0.6,7.2-1.1,11.1h63.9C878.8,1153.4,875.2,1127.5,875.5,1095.8z"
-            />
-            <path class="st" d="M348.8,853.2c-11.2,7.7-28.1,13-43.2,19.6c-0.6-2.1-0.7-6.4-0.1-11.8c6.2-11.5,14.8-17.5,21-30.7
-            c7.3,5.8,15.8,11.1,22.4,15.9V853.2z M424,737c-1.7,1.7-3.4,3.4-5,5c10.9,21.5,0.3,56.4,0,86.6c-1.1-0.6-2-1.4-3.1-2
-            c-1.1,5.6-2,10.9-3.1,16.2c2.2,1.1,4.2,2.5,6.1,3.9c7.3,0.6,14.2,0.8,21.2,1.1c28.2,5.9,64.5,9.8,85.5,24c1.2,0.8,3.8,3.6,7,7.5
-            c4.8-4.6,14.2-11.8,12.1-30.8c-14-52.8,10.3-107.1-36.3-128.9c-8.7-21,24.6-30.8,31.3-44.2c22.4-46.1-14.8-88.1-54.2-87.5
-            c-16.2,10.1-56.2,24.3-48.4,56.5c3.9,15.9,13.1,29.1,12,50.3c-10.6,0-21.5,0-32.1,0c-5.2,5.2-10,10.1-15.1,15.2
-            C407.7,719.3,417.3,733.3,424,737z"/>
-            <path class="st" d="M1678.4,892.3c-7.6-12.3-10.4-40.6-9-59.3c1.7-24.6,16.8-24.6,23.2-43.4c6.4-19,1.1-36.7,5-58.5
-            c4.5-25.5,10.6-58.5,7-83.7c-2.5-17.3,8.7-38.6,0-54.3c-14-19.9-47.9-23.2-66.6-39.2c-46.2-39.7-35.3-60.2-35.3-60.7
-            c12.6-3.6,26.9-61.3,22.1-79.5c-5.3-19.9-62.7-52.3-90.7-42.3c-81.7,28.8-26.2,149.5-11.2,162c-19.6,10.9-59.3,29.9-86.7,31.3
-            c-4.8,8.7-2,18.5-3.9,29.1c-2.2,10.9-9.5,28.8-12,39.2c-0.3,11.8-0.6,23.5-1.1,35.3c-4.8,22.4-13.2,49-17.1,69.4
-            c-5.3,26.6,15.7,51.2,13.2,69.4c-3.9,28.5-38.1,43.9-44.2,70.5c2,2,3.9,3.9,6.2,6.2c-1.4,3.9-2.8,8.1-3.9,12
-            c6.7,3.1,13.4,6.2,20.1,9c-3.4,38.1-22.7,76.7-33.3,110.8c-0.3,9.8-0.6,19.6-1.1,29.1c-8.4,40.6-14.8,90.7-14,139.1h141
-            c5.6-5.3,11.5-10.6,17.1-16.2c23.8-19.6,44.5-44.2,68.6-62.4c8.4-6.4,13.4-14.8,21.3-21.3c17.1-14.3,38.6-16.2,43.4-43.4h13.2
-            c5.3-8.7,6.4-81.7,2-95.7v-11.2c21,5.6,34.4,24.3,58.5,28.3h1.1C1722,920.6,1690.1,911.9,1678.4,892.3z M1529.2,1029.3
-            c-9.8,15.7-66.6,67.4-82.9,78.6c-2.5-3.6-7.8-38.2-8.6-43.2c5-9,24.9-34.7,14-44.2c7.8-30.5,36.7-47.6,50.4-72.5
-            c15.1,3.1,12.5,8.4,31.5,9c4.8,12.3,9,18.3,15.8,27.8C1540.9,999.3,1537.9,1015.3,1529.2,1029.3z"/>
-            <path class="st" d="M194.3,1053.9c2.5,40.9,21,97.8,10.1,130c-25.2-0.6-50.4-0.8-75.7-1.1c-0.3-26.1,5-41.5,3.9-66.7l5,5
-            c0.6-0.6,1.4-0.8,2-1.1c-2-18.5-13.2-22.7-19.1-36.4c23.5-10.1,47.1-20.2,70.6-30.3v0.6H194.3z M249.7,940.5
-            c-0.9-3.7-2.1-7.1-3.9-10.2c-3.6-5.3-22.4-5.6-30.3-6.2c-1.7-4.5-3.4-8.7-5-13.2c7.8-3.9,15.4-8.1,23.3-12
-            c23.3-5.5,40.4-9.3,59.1-19.8c8.6-4.4,8.3-12.9,16.1-30.2c-0.9-12.6-0.3-25.7-0.6-38.4c-7.7-11.2-13.6-23-24.1-32.5
-            c3.9-11.2,3.6-18.2,7-30.2c-0.3-2.4-0.7-4.8-1-7.3c-21.7-16.6-57.2-21.5-63.8-51.5c5.6-11.5,7.6-9,13.2-16.3
-            c21.9-28.3,21.3-78.5-10.1-95.8c-15.4-8.4-27.2-2.8-44.3-7c-34.5,13.4-49.3,25.5-38.7,67.5c-2.2,6.4-1.1,19.3,3.1,26.3
-            c2.8,1.4,5.3,2.8,8.1,3.9c1.7,7.3,3.4,14.9,5,22.1c-12.6,6.2-17.4,19.3-28.3,25.2c-7.8,1.7-15.4,3.4-23.3,5
-            c-23.5,10.4-45.4,30.5-52.4,56.6c-2.5,9,8.4,49.3,11.2,58.6c0.3,9,0.6,18.2,1.1,27.2c2.5,14.3,9.5,31.7,12,42.3
-            c-5,17.7-10.1,35-15.1,52.7c60.3,7,120.6,14,180.9,21.2c-0.6-10.1-1.2-20.1-1.9-30.3C247.8,945.5,248.7,942.9,249.7,940.5z
-                M250.3,997.3c-0.4-2.1-1-4-1.6-5.6c-21.6,20.2-48.5,2.2-39.2,53.5c1.1,7-1.1,13.7,2,18.2c3.9,7,24.7,13.7,33.3,15.1
-            c1.4-6.5,3.4-18.2,4.9-31.1c-2.1-3.2-3.6-6.4-4.4-9.3C240.8,1021.6,251.1,1010.5,250.3,997.3z"/>
-            <path class="st" d="M823.8,1025.9c0.1-7.4-2.3-14.8-2.9-22c8.9,0.6,17.6,0.8,26.2,1.1c-1.1,5.6-2,10.9-3.1,16.2
-            c7.5,2.2,6.7,8.4,8.9,14.8c-10-1.1-20.1-2-30.1-3.1c0.1-0.4,0.2-0.7,0.3-1.1C830.9,1032,828,1029.8,823.8,1025.9z M1052.5,1025.1
-            c-1.7-0.6-3.3-1.4-5-2c-0.6,6.1-1.1,12.3-2,18.1c2.2,0.6,4.7,1.4,7,2V1025.1z M1043.6,864.8c-13.4-0.3-26.8-0.6-40.1-1.1v16.2
-            c13.4,1.4,26.8,2.8,40.1,3.9V864.8z M1043.6,1055.5v1.1c2.8,0.3,5.3,0.6,8.1,1.1c0.3-0.6,0.6-1.4,1.1-2v-3.3c-2.8-1.1-5.3-2-8.1-3.1
-            C1044.2,1051.3,1043.9,1053.5,1043.6,1055.5z M1064.8,1030.4v13.9c8.9,3.1,19.2,1.4,27-1.1l1.1-2
-            C1087.4,1032.1,1077.3,1032.1,1064.8,1030.4z M1037.5,956c-16.4,11.7-32.9,23.4-49.1,35.1c1.7,21.2,3.3,44.9,3.1,66.3h40.1
-            c2-14.5,3.9-28.7,6.1-43.2c-3.6-1.4-7.2-2.8-11.1-3.9c-0.8-9.8-0.6-12.3,3.9-16.2v-1.1c-1.7,0.6-3.3,1.4-5,2h-1.1
-            C1029.7,986.4,1045.8,975.2,1037.5,956z M969.4,824.2c-0.7,0.5-1.4,1-2.2,1.6c1.1,2.8,2,5.9,3.1,8.9c4.7,0,5.9-0.3,8.1,2.2
-            c0.6,13.9,0.8,28.2,1.1,42.1c-32.9-2.2-65.5-4.2-98.4-6.1c-20.4,10.7-40.9,21.5-61.3,32.3c7.1-17.8,9-40.3,1.7-62.7
-            c-3.9-12-11.4-16.7-12-35c-4.9-4-11.4-10.3-18.6-12.4c-2.1-5.8-5.6-11.7-11-17.8c-0.9-4.4-1.9-9-2.9-13.8
-            c13-7.4,23.4-30.8,23.1-50.2c0.3,1.1,0.6,1.9,1.1,3.1h0.3c0.1-17.8-3.8-31.9-11.1-42.7c18.5-14.9,42.8-21.8,43.5-35.7
-            c-2.8-1.1-5.9-2-8.9-3.1c0.6,2.2,1.4,4.2,2,6.1c-9.2,3.3-8.6,13.1-25.1,19h-3.1c0.6-0.6,0.8-1.4,1.1-2c28.4-8.1,8.1-15.6,7-22
-            c-0.6,0.6-0.8,1.4-1.1,2c-3.9,3.6-3.9,7.5-2,13.9c-1.1-0.6-2-1.4-3.1-2c-3.1-9.2-8.6-14.5-10-27c-1.1,0.6-2,1.4-3.1,2
-            c-0.6,1.7-1.4,3.3-2,5h-1.1c-0.6-1.1-0.8-2-1.1-3.1c3.1-6.1-0.6-6.7,1.1-13.9c5.6-25.9,30.7-57.7,55.2-64.1
-            c14.5-3.6,23.1,7.2,31.2,13.1c27,19.5,32.6,42.4,25.9,85c25.6,6.4,46.8,21.2,53.2,46.3c0.9,3.8,1.6,8.1,2,12.8
-            c-9.1,2.7-17.2,10-23.8,24.5c1.2,16.4,12,30.2,24.7,39.5c0.4,15.6,1.9,29.6,6.3,38.9c-0.1,3.1,0.5,6.1,2.1,8.9
-            C962.9,820.2,965.6,822.4,969.4,824.2z"/>
-            <path class="st" d="M1219.6,732.5c-0.3-12.3-0.6-24.8-1.1-37.1c-5.6-17.3-11.4-34.9-17-52.1c-5.9-22.6-6.1-49.1-18.1-66.4
-            c-15.9-23.1-48.2-31-73.1-45.2c-1.7-10.6,3.9-10.9,8.1-18.1c0,0,1.7,4.7,2.2,7c4.2-5.3,2-17.8,4-24.5c8.4-32.6-0.3-54.9-40.5-61.7
-            c-14,2.4-19.4,10.3-24,16.2c-7.2-1.1-14.8-2-22-3.1c-3.3,3.1-9.1,6.6-11.9,9.9c0.8,12.3,12.7,10.7,23.1,13
-            c-5.3,8.4-9.5,54.1-3.9,65.2c2.2,4.5,11.7,5,18.1,5c0.6,0.6,1.4,1.4,2,2c-13.4,5.6-26.8,11.4-40.2,17c-14.5,19-24,82.6-28.2,106.3
-            c-3.6,19-0.2,41.5,14.3,48.2c16.7,4.5,40.9-18.8,55.7-11.6c0,0-1.9,14.1-2.7,24.7c-12.8-0.6-25.4-1.4-38.2-2
-            c-34.9-10-75-45.5-97.6,4.2c1.7,23.7,23.7,42.1,42.1,49.1c0.3,1.1,0.6,2,1.1,3.1c-5.3,6.7-17,23.4-10,35.1
-            c6.1,12.3,48.2,17.6,71.4,11.2c7.5-2.2,15.6-13.1,30.1-8.9c8.6,2.5,18.7,16.2,25.1,22c16.7-2.8,32.3,5.6,49.1,1.1
-            c2.8-5,5.3-10,8.1-15.1c21.5-5.6,44.9-0.3,59.1-12c9.8-8.1,6.4-25.7,13.1-37.1l8.1-8.1C1228.5,759.5,1222.1,743.1,1219.6,732.5z"/>
-            <path class="st" d="M579.9,787.9c-14.3-4.6-13-15-21.8-25.4c6.2-19.6,2.2-17.4-3.1-30.3c-3.9-9.5,5.6-17.7,2-26.4
-            c-3.4-7.6-10.4-9.3-11.2-20.2c4.5-13.2,7-25.5,10.1-38.4c14.6-3.6,25.8-18.2,36.5-26.4c9,1.7,10.1,3.6,17.1-1.1c1.1-2.8,2-5.9,3.1-9
-            c-9.1-9.2-20.1-21.1-24.2-46.8c1.7-3.4,2.5-12.4,4.2-15.7c-1.7-3.1-0.3-6.7,7-8.1c4.5-10.4,16.4-10.7,22.3-19.1c5.1,1.4,3.4,1.1,9,0
-            c7.6,0.6,12.6-0.3,32.3,15.2c-0.8,9.3,12.3,15.4,8.1,30.3c-1.1,3.4,0.8,16.3-3.1,22.2c-2.2,0.6-4.2,1.4-6.2,2
-            c-10.4,10.1-6,24.1-3.5,35.1c14,2.5,23.1,7,34.9,15.4c1.3,3.3,6.4,12.1,9.4,17.7c-6.1,3.5-11.4,8-15.2,15.6
-            c-10.6,20.3,0.3,43.9-16.1,63.9c-18.3,22.8-62,27.2-86.2,43.9C583.3,783.6,581.6,785.6,579.9,787.9z"/>
-        </svg>
-        </div>
-        <img class="banLogo" src="img/logoban.png" alt="四月六日未完待續">
-        <div class="bannerBgPhone">
-            <img class="banBgAll PChide" src="img/banBgphone.png" alt="Banner">
-            <div class="bannerBub">
-                <p>
-                    人氣偶像男團<br>
-                    Nine Percent 配音
+    <main>
+        <div class="banner">
+            <img src="img/paperCheckBlue.png" alt="背景紙張" class="bannerBg">
+            <div class="banFrame">
+                <img src="img/homeBanner.png" alt="第一次籌備會議"  class="banPho">
+                <p class="slogan">
+                    "我"為起始，而"妳"卻不是結束<br>
+                    "我"和"妳"的故事，未完待續......
                 </p>
-                <img src="img/bannerBubNPC.png" alt="Nine Percent">
+                <a href="javascript:;" class="banDownload">
+                    <img src="img/appStore.svg" alt="AppleStore" class="banDownload">
+                </a>
+                <a href="javascript:;" class="banDownload">
+                    <img src="img/playStore.svg" alt="PlayStore" class="banDownload">
+                </a>
             </div>
         </div>
-        <div class="banDown PChide">
-            <p>「四月六日未完待續」戀愛遊戲全9集</p>
-            <img src="img/downloadSlogan.png" alt="">
-            <p>第一集好評發售中！</p>
-            <a class="banDownLink" href="javascript:;"><img src="img/app-store-badge.svg" alt="App Store 下載連結"></a>
-            <a class="banDownLink" href="javascript:;"><img src="img/google-play-badge.svg" alt="Google Play 下載點"></a>
-        </div>
-    </div>
-    <div class="newsAndStory">
-        <div class="news" id="news">
-            <div class="newsTitle">
-                <p>最新</p>
-                <h2>活動消息</h2>
+        <div class="char">
+            <div class="charBg">
+                <h2 class="title">人 物</h2>
             </div>
-            <a href="javascript:;">
-                <article class="newsblock newsblock1">
-                    <div class="aliBot">
-                        <p>
-                            2 / 14 ~ 3 / 15 <br>
-                            情人節互動遊戲新劇情更新
-                        </p>
-                        <h3 class="textTypeO">#情人節限定劇情</h3>
-                    </div>
-                </article>
-            </a>
-            <a href="javascript:;">
-                <article class="newsblock newsblock2">
-                    <div class="aliBot">
-                        <p>
-                            1 / 22 ~ 2 / 16 <br>
-                            和Evan一起分享一本好書
-                        </p>
-                        <h3 class="textTypeO">#溫油的書聲</h3>
-                    </div>
-                </article>
-            </a>
-            <a href="javascript:;">
-                <article class="newsblock newsblock3">
-                    <div class="aliBot">
-                        <p>
-                            1 / 7 <br>
-                            四月六日未完待續原聲帶上線
-                        </p>
-                        <h3 class="textTypeO">#OST:剛好的相遇</h3>
-                    </div>
-                </article>
-            </a>
-        </div>
-        <div class="story" id="story">
-            <div class="storyTitle">
-                <p>遊戲</p>
-                <h2>故事</h2>
-            </div>
-            <div class="storyWrap">
-                <div class="storyImg storyImgSchool"></div>
-                <div class="storyImg storyImgRoom"></div>
-                <p class="textTypeB storyP1">高二下學期，玩家轉學進入NPC高中</p>
-                <p class="textTypeB storyP2">才加入新班級不到一週<br>
-                    老師就以幫助適應學校為由
+            <div class="evan">
+                <p class="name">
+                <strong>Evan</strong>
+                     (CV：林橘)
                 </p>
-                <p class="textTypeB storyP3">將妳指派至<strong class="hiLi">校慶籌備小組</strong><br>
-                    為四月份、NPC年度<br>
-                    最盛大的校慶週規劃準備
+                <img src="img/talk5.png" alt="妳有沒有時間..." class="talk">
+                <div class="btn">
+                    <a href="javascript:;" class="sample">
+                        <i class="material-icons">volume_up</i>
+                        試聽
+                        <!-- <audio>
+                            <source src="vdo/voice5.mp3" type="audio/mpeg">
+                            您的瀏覽器不支援
+                        </audio> -->
+                    </a>
+                </div>
+                <p class="desc">
+                    籌備小組指導老師，<br>
+                    個性冷淡溫柔，看似很難親近，<br>
+                    熟悉後卻會露出可愛的一面
                 </p>
-                <p class="textTypeB storyP4">籌備小組裡<strong class="hiLi">九位不同性格的同學、還有指導老師</strong><br>
-                    籌備過程中，妳逐漸與「<strong class="hiLi">他</strong>」互相了解<br>
-                    四月六日、校慶最後一天<br>
-                    是否意味著籌備小組的關係將畫下句點，或是<strong class="hiLi">未完待續</strong>...？
+                <img src="img/char5.png" alt="Evan" class="char5">
+            </div>
+            <div class="nong">
+                <p class="name">
+                    <strong>Nong</strong>
+                    (CV：濃濃)
                 </p>
+                <img src="img/talk2.png" alt="妳不為人知的..." class="talk">
+                <a href="javascript:;" class="sample">
+                    <i class="material-icons">volume_up</i>
+                    試聽
+                </a>
+                <p class="desc">
+                    籌備小組成員、跆拳道社長，<br>
+                    時刻充滿笑容的陽光少年，<br>
+                    與他相處會有種被呵護的感覺
+                </p>
+                <img src="img/char2.png" alt="Nong" class="char2">
             </div>
-        </div>
-    </div>
-    <div class="char" id="char">
-        <div class="charTitle" >
-            <p>登場</p>
-            <h2  >人物</h2>
-        </div>
-        <div class="charbook" >
-            <div class="charpages">
-                <div class="charpagestart" id="char5S">
-                    <p class="charName">Evan <span>(CV：林橘)</span></p>
-                    <p class="textTypeB charIntro1">
-                        籌備小組指導老師，<br>
-                        個性冷淡溫柔，看似很難親近，<br>
-                        熟悉後卻會露出可愛的一面
-                    </p>
-                    <div class="charVoice">
-                        <img src="img/char5talk.png" alt="你有沒有時間，我想和你聊一聊"><br>
-                        <a href="javascript:;" class="sampleVoice" id="evanVoice">
-                            <i class="material-icons">volume_up</i>
-                            試聽
-                        </a>
-                        <div class="randomVoiceWrap"></div>
-                    </div>
-                    <p class="textTypeB">
-                        個人資料：<br>
-                        　身分：英文實習老師<br>
-                        　生日：8/24 (23歲) <br>
-                        　身高：181 cm<br>
-                        　體重：63 kg<br>
-                        　擅長科目：英文、冷笑話<br>
-                        　喜歡的食物：草莓、冰淇淋
-                    </p>
-                    <img class="charFullBody" src="img/introchar5.png" alt="Evan">
-                    <div class="charClose"><i class="material-icons">close</i></div>
-                
-                </div>
-                <div class="charpage rwdHide introimg">
-                    <div class="clickarea"></div>
-                    <img src="img/introcharimg5-1.png" alt="Evan1">
-                    <img src="img/introcharimg5-2.png" alt="Evan2">
-                    <img src="img/introcharimg5-3.png" alt="Evan3">
-                    <img src="img/introcharimg5-4.png" alt="Evan4">
-                </div>
-                <div class="charpage">
-                    <div class="clickarea comming"></div>
-                    <p class="charName">Nong</p>
-                    <!-- <div class="charVoice">
-                        <a href="javascript:;" class="sampleVoice" id="nongVoice">試聽</a>
-                        <div class="randomVoiceWrap"></div>
-                    </div>
-                    <p class="textTypeB"></p>
-                    <p class="textTypeB"></p> -->
-                </div>
-                <div class="charpage rwdHide">
-                    <div class="clickarea comming"></div>
-                </div>
-                <div class="charpage">
-                    <div class="clickarea comming"></div>
-                    <p class="charName">Adam</p>
-                    <!-- <div class="charVoice">
-                        <a href="javascript:;" class="sampleVoice" id="adamVoice">試聽</a>
-                        <div class="randomVoiceWrap"></div>
-                    </div>
-                    <p class="textTypeB"></p>
-                    <p class="textTypeB"></p> -->
-                </div>
-                <div class="charpage rwdHide">
-                    <div class="clickarea comming"></div>
-                </div>
-                <div class="charpage">
-                    <div class="clickarea comming"></div>
-                    <p class="charName">Justin</p>
-                    <!-- <div class="charVoice">
-                        <a href="javascript:;" class="sampleVoice" id="justinVoice">試聽</a>
-                        <div class="randomVoiceWrap"></div>
-                    </div>
-                    <p class="textTypeB"></p>
-                    <p class="textTypeB"></p> -->
-                </div>
-                <div class="charpage rwdHide">
-                    <div class="clickarea comming"></div>
-                </div>
-                <div class="charpage ">
-                    <div class="clickarea comming"></div>
-                        <p class="charName">Kun</p>
-                        <!-- <div class="charVoice">
-                            <a href="javascript:;" class="sampleVoice" id="kunVoice">試聽</a>
-                            <div class="randomVoiceWrap"></div>
-                        </div>
-                        <p class="textTypeB"></p>
-                        <p class="textTypeB"></p> -->
-                </div>
-                <div class="charpage rwdHide">
-                    <div class="clickarea comming"></div>
-                </div>
-                <div class="charpage">
-                    <div class="clickarea comming"></div>
-                    <p class="charName">Theo</p>
-                    <!-- <div class="charVoice">
-                        <a href="javascript:;" class="sampleVoice" id="theoVoice">試聽</a>
-                        <div class="randomVoiceWrap"></div>
-                    </div>
-                    <p class="textTypeB"></p>
-                    <p class="textTypeB"></p> -->
-                </div>
-                <div class="charpage rwdHide">
-                    <div class="clickarea comming"></div>
-                </div>
-                <div class="charpage">
-                    <div class="clickarea comming"></div>
-                    <p class="charName">L.ghost</p>
-                    <!-- <div class="charVoice">
-                        <a href="javascript:;" class="sampleVoice" id="ghostVoice">試聽</a>
-                        <div class="randomVoiceWrap"></div>
-                    </div>
-                    <p class="textTypeB"></p>
-                    <p class="textTypeB"></p> -->
-                </div>
-                <div class="charpage rwdHide">
-                    <div class="clickarea comming"></div>
-                </div>
-                <div class="charpage">
-                    <div class="clickarea comming"></div>
-                    <p class="charName">Boogie</p>
-                    <!-- <div class="charVoice">
-                        <a href="javascript:;" class="sampleVoice" id="boogieVoice">試聽</a>
-                        <div class="randomVoiceWrap"></div>
-                    </div>
-                    <p class="textTypeB"></p>
-                    <p class="textTypeB"></p> -->
-                </div>
-                <div class="charpage rwdHide">
-                    <div class="clickarea comming"></div>
-                </div>
-                <div class="charpage">
-                    <div class="clickarea comming"></div>
-                    <p class="charName">Azora</p>
-                    <!-- <div class="charVoice">
-                        <a href="javascript:;" class="sampleVoice" id="azoraVoice">試聽</a>
-                        <div class="randomVoiceWrap"></div>
-                    </div>
-                    <p class="textTypeB"></p>
-                    <p class="textTypeB"></p> -->
-                </div>
-                <div class="charpageend rwdHide">end</div>
+            <div class="charPapers">
+                <img src="img/homeCharPapers.png" alt="更多角色">
             </div>
+            <a href="info.html" class="more">
+                    <img src="img/tagLink.png" alt="更多資訊">
+                    更多介紹
+                </a>
         </div>
-        <div class="charbooklinks">
-            <ul>
-                <li>
-                    <a href="javascript:;" class="charbooklink" id="charbooklink5">
-                        <span>Evan</span>
-                        <div class="charbooklinkimg">
-                            <img src="img/char5Link.png" alt="Evan頭像">
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:;" class="charbooklink" id="charbooklink2">
-                        <span>Nong</span>
-                        <div class="charbooklinkimg comming">
-                            <img src="img/char2Link.png" alt="Nong頭像">
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:;" class="charbooklink " id="charbooklink3">
-                        <span>Adam</span>
-                        <div class="charbooklinkimg comming">
-                            <img src="img/char3Link.png" alt="Adam頭像">
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:;" class="charbooklink " id="charbooklink4">
-                        <span>Justin</span>
-                        <div class="charbooklinkimg comming">
-                            <img src="img/char4Link.png" alt="Justin頭像">
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:;" class="charbooklink " id="charbooklink1">
-                        <span>Kun</span>
-                        <div class="charbooklinkimg comming">
-                            <img src="img/char1Link.png" alt="Kun頭像">
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:;" class="charbooklink " id="charbooklink6">
-                        <span>Theo</span>
-                        <div class="charbooklinkimg comming">
-                            <img src="img/char6Link.png" alt="Theo頭像">
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:;" class="charbooklink " id="charbooklink7">
-                        <span>L.ghost</span>
-                        <div class="charbooklinkimg comming">
-                            <img src="img/char7Link.png" alt="L.ghost頭像">
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:;" class="charbooklink " id="charbooklink8">
-                        <span>Boogie</span>
-                        <div class="charbooklinkimg comming">
-                            <img src="img/char8Link.png" alt="Boogie頭像">
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:;" class="charbooklink" id="charbooklink9">
-                        <span>Azora</span>
-                        <div class="charbooklinkimg comming">
-                            <img src="img/char9Link.png" alt="Azora頭像">
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="clearfix"></div>
-    </div>
-    <div class="gameFea" id="gameFea">
-        <div id="feaTitle">
-            <p>遊戲</p>
-            <h2>特色</h2>
-        </div>
-        <ol class="feaLink">
-            <a href="javascript:;" class="rwdHide"><li>
-                <!-- <img src="img/tagFea.png" alt="標籤連結" class="tagFea"> -->
-                特色1．用訊息隨時與他互動
-            </li></a>
-            <a href="javascript:;" class="rwdHide"><li>
-                <!-- <img src="img/tagFea.png" alt="標籤連結" class="tagFea"> -->
-                特色2．VR移動視線
-            </li></a>
-            <a href="javascript:;" class="rwdHide"><li>
-                <!-- <img src="img/tagFea.png" alt="標籤連結" class="tagFea"> -->
-                特色3．對話反映妳的性格
-            </li></a>
-            <a href="javascript:;" class="rwdHide"><li>
-                <!-- <img src="img/tagFea.png" alt="標籤連結" class="tagFea"> -->
-                特色4．小遊戲獲得零用錢
-            </li></a>
-            <a href="javascript:;" class="rwdHide"><li>
-                <!-- <img src="img/tagFea.png" alt="標籤連結" class="tagFea"> -->
-                特色5．禮物傳達妳的心意
-            </li></a>
-        </ol>
-        <div class="phone">
-            <div class="screenMask">
-                <img src="img/feaMsg.png" alt="用訊息隨時與他互動" class="feaMsgScreen rwdHide">
-                <img src="img/feaVr.png" alt="左右移動視線" class="feaVrScreen rwdHide">
-                <img src="img/feaVr-1.png" class="feaVrDia rwdHide" alt="對話：是否有心事">
-                <img src="img/feaMind-1.png" class="feaMindDia rwdHide" alt="對話選項：是否有心事">
-                <img src="img/feaCafe.png" alt="小遊戲獲得零用錢" class="feaCafeScreen rwdHide">
-                <img src="img/feaShop.png" alt="禮物傳達妳的心意" class="feaShopScreen rwdHide">
+        <div class="feature">
+            <h2 class="title">遊戲特色</h2>
+            <div class="phone">
+                <img src="img/iX.png" alt="iphone" class="iX">
+                <img src="img/feaMsg.png" alt="訊息通知" class="screen">
             </div>
-            <img src="img/iX.png" alt="iphone" class="iX rwdHide">
-        </div>
-        <div class="feaDescWrap">
-            <article class="feaDesc featureMsg">
-                <img src="img/feaMsgS.png" alt="用訊息隨時與他互動" class="feaMsgScreen PChide">
-                <p class="textTypeO">
+            <article class="featureMsg">
+                <section class="highlight2">
                     透過手機內的訊息工具，<br>
-                    營造出隨時與他互動的感覺
-                </p>
-                <p class="textTypeB">
+                    營造出<strong>隨時與他互動</strong>的感覺
+                </section>
+                <section class="content">
                     與他交談的機會不僅限於會面。<br>
                     見不到面時，可以透過遊戲內的訊息工具與他交換各種不同的對話。<br>
-                    通過互傳訊息，可以了解到會面中無從得知的他的想法，妳也可以把自己真實的一面傳達給他。
-                </p>
-            </article>
-            <article class="feaDesc featureVr feaSlideLrwd">
-                <img src="img/feaVrS.png" alt="左右移動視線" class="feaVrScreen PChide">
-                <p class="textTypeO">
-                    他將對 妳的視線 有所反應
-                </p>
-                <p class="textTypeB">
-                    透過移動妳的視線來對他表達妳的感情。<br>
-                    如果在會面與他談話當中出現的符號，請左右移動智慧型裝置看看。<br>
-                    螢幕面向哪裡，代表妳的視線移到哪裡，請傳達妳最真實的心情讓他知道吧。
-                </p>
-            </article>
-            <article class="feaDesc featureMind feaSlideLrwd">
-                <img src="img/feaMindS.png" class="feaMindDia PChide" alt="對話選項：是否有心事">
-                <p class="textTypeO">
-                    妳的話語將持續 留在他的心裡
-                </p>
-                <p class="textTypeB">
-                    在與他對話的過程中，他將透過妳所選的選項，加深對「妳」的瞭解。<br>
-                    累積多次談話後，他將越來越了解「妳真實的個性」。所以請用妳最實在的話語與心意，縮短與他之間的距離吧。
-                </p>    
-                
-            </article>
-            <article class="feaDesc featureCafe feaSlideLrwd">
-                <img src="img/feaCafeS.png" alt="小遊戲獲得零用錢" class="feaCafeScreen PChide">
-                <p class="textTypeO">
-                    透過小遊戲，打工賺取零用錢
-                </p>
-                <p class="textTypeB">
-                    遊戲內進行打工小遊戲，並賺取零用錢(遊戲內虛擬貨幣)，並使用零用錢購買禮物送他，及其他可觸發特殊劇情之道具。
-                </p>
-            </article>
-            <article class="feaDesc featureShop feaSlideLrwd">
-                <img src="img/feaShopS.png" alt="禮物傳達妳的心意" class="feaShopScreen PChide">
-                <p class="textTypeO">
-                    購買禮物將妳的心意傳達給他
-                </p>
-                <p class="textTypeB">
-                    將道具當成「禮物」送給他，會收到他傳來的感謝訊息。<br>
-                    配合每個角色的喜好購買禮物或特殊道具，將可觸發隱藏劇情。
-                </p>    
+                    通過互傳訊息，可以了解到會面中無從得知的他的想法，妳也可以把自己真實的一面傳達給他。<br>
+                    如此一來，他會對妳是怎麼樣的人有更深一層的認識。<br>
+                    透過這些無關緊要的閒聊，可以清楚「感受」透過這些無關緊要的閒聊可以清楚...
+                </section>
+                <a href="info.html" class="more">
+                    <img src="img/tagLink.png" alt="更多資訊">
+                    <span>更多介紹</span>
+                </a>
             </article>
         </div>
-    </div>
-    <div class="download" id="download">
-        <p>「四月六日未完待續」戀愛遊戲全9集</p>
-        <img src="img/downloadSlogan.png" alt="找回情竇初開的酸甜滋味">
-        <p>每集6話，組合售價360元</p>
-        <p>第一集好評發售中！</p>
-        <a class="banDownLink" href="javascript:;"><img src="img/app-store-badge.svg" alt="App Store 下載連結"></a>
-        <a class="banDownLink" href="javascript:;"><img src="img/google-play-badge.svg" alt="Google Play 下載點"></a>
-    </div>
-
+        <div class="news">
+            <div class="newsBg">
+                <h2 class="title">最新消息</h2>
+            </div>
+            <div class="newspaper">
+                <!-- <img src="img/homeNewspaper.png" alt="本週校刊"> -->
+                <div class="npcWeekly">
+                    <strong>NPC校刊</strong> 2019.02期
+                </div>
+                <article class="column1">
+                    <section class="highlight2">原聲帶新發售</section>
+                    <section class="content">
+                        2019.01.07 <i class="material-icons">fiber_new</i> <br>
+                        四月六日未完待續全新原聲帶Evan個人EP《剛好的傷口》上線，作為開年首份重磅驚喜，制霸少年化身乖巧的甜味男孩，輕聲吟唱用音樂治癒你的寒冬! <br>
+                        全新EP同名主打歌《剛好的傷口》，是Evan的首支抒情單曲。舒緩的旋律搭配上敲擊的鼓點，與偶爾流淌的優雅鋼琴相得益彰，再加上Evan溫潤低沉的音色，治癒你心底的傷口，比冬日暖陽還讓人悸動。在這首單曲中，Evan
+                    </section>
+                </article>
+                <article class="column2">
+                    <section class="highlight1">第24屆校慶週明日展開</section>
+                    <img src="img/news1.png" alt="校慶比腕力活動">
+                    <section class="content">
+                        2019.01.05 <br>
+                        NPC第24屆校慶就要到了；幫各位整理了星期六當日的時程表，不要錯過重要的加油時刻囉！<br>
+                        煙火施放後，還有學生會舉辦的星光之夜，邀請社團、藝藝人站台一同演出；近日會公布詳細資訊，敬請期待！
+                    </section>
+                </article>
+                <article class="column1">
+                    <section class="highlight2">熱舞成發落幕</section>
+                    <section class="content">
+                        2018.12.18 <br>
+                        NPC高中學生社團熱舞社第十屆成果發表會「舞夜夢迴」於12月12日晚上在該校中山體育館隆重登場，集結各科系的舞林高手一同切磋舞技，舞台魅力震撼人心。
+                        「創新者」是NPC熱舞社一整年努力練習的成果展現，為使表演更加精采。全場多達17支舞碼的演出，以夢為主題，由「創新者」帶領觀眾進入想像的奇幻世界，接著「I need a doctor」、「Ei喔Ei喔」等不同風格的等不同風格的節目接力登..
+                    </section>
+                </article>
+                <article class="column4">
+                    <img src="img/news2.png" alt="所有閃光都值得等待">
+                    <section class="highlight2">所有閃光都值得等待 9/20青春應修課</section>
+                    <section class="content">
+                        2018.9.17 <br>
+                        9月20日，“青春應修課”來到NPC，邀請《愛上超模》及《偶像練習生》等熱門綜藝製片人姜濱，《偶像練習生》出道成員林彥俊與高校學子面對面交流，以“所有閃光都值得等待”為主題，講述關於偶像養成台前幕後的那些事，講述人生等待、青春夢想的故事。  ......
+                    </section>
+                </article>   
+            </div>
+            <a href="news.html" class="more">
+                <img src="img/tagLink.png" alt="更多資訊">
+                更多消息
+            </a>
+        </div>
+        <div class="download">
+            <p class="white">「四月六日未完待續」戀愛遊戲全9集</p>
+            <img src="img/downloadSlogan.png" alt="找回情竇初開的酸甜滋味">
+            <p class="white">每集6話，組合售價360元</p>
+            <p class="white"> 第一集好評發售中！</p>
+            <a href="javascript:;" class="downloadLink">
+                <img src="img/appStore.svg" alt="AppleStore">
+            </a>
+            <a href="javascript:;" class="downloadLink">
+                <img src="img/playStore.svg" alt="PlayStore">
+            </a>
+        </div>
+    </main>
     <footer>
-        <table>
-            <tr>
-                <td>
-                    <a href="javascript:;"><img src="img/logoSW.png" alt="LOGO" class="footerLogo"></a>
-                </td>
-                <td>
-                    <a href="javascript:;" class="">關於特別感謝</a>
-                    <a href="javascript:;" class="">聯絡客服</a>
-                </td>
-                <td class="white">iOS|Android</td>
-                <td><img src="img/rate12.png" alt="輔12級" class="rate12"></td>
-            </tr>
-        </table>
+        <div class="footerContent">
+            <a href="index.html"><img src="img/logoMW.png" alt="LOGO" class="footerLogo"></a>
+            <span class="white">
+            <a href="javascript:;" class="">關於特別感謝</a>
+            <a href="javascript:;" class="">聯絡客服</a>
+            iOS|Android
+            </span>
+            <img src="img/rate12.png" alt="輔12級" class="rate12">
+        </div>
     </footer>
-</div>
-
-
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/jsIndex.js"></script>
 </body>
 </html>

@@ -1,0 +1,195 @@
+/* 字型 */
+body{
+    font-family: Candara,微軟正黑體;
+    letter-spacing: 2px;
+    line-height: 1.5;
+    color: #114d7c
+}
+
+.clearfix{clear: both;}
+/* 選單 */
+header{
+    background: url(img/menuBg.png) no-repeat;
+    background-size: 320px;
+    width: 300px;
+    height: 300px;
+    position: fixed;
+    top: 0;left: 0;
+    z-index: 10;  
+}
+.logo{
+    height: 45px;
+    margin-top: 5px;
+}
+.menu{
+    font-size: 20px;
+    margin: 10px 15px;
+}
+.menu li{
+    margin: 0px 0px 15px 0px;
+    letter-spacing: 5px;
+    font-weight: bold;
+    line-height: 1;
+}
+.menu a {color:#114d7c;}
+/* 第一屏的背景紙 */
+.bannerBg,.storyBg,.photoBg,.forumBg{
+    width: 1060px;
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    z-index: -7;
+    transform: rotate(-10deg)
+}
+/* 藍色的紙 */
+.charBg,.newsBg{
+    background: #00c7c4;
+    width: 1000px;
+    height: 600px;
+    position: relative;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    margin: auto;
+    transform: rotate(10deg)
+}
+.download::before{
+    background: #00c7c4;
+    width: 1000px;
+    height:486px;
+    position: relative;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    margin: auto;
+    transform: rotate(4deg)
+}
+/* 每個區塊的標題 */
+.title{
+    color: rgba(255, 249, 224, 0.9);
+    font-size: 36px;
+    letter-spacing: 3px;
+    padding: 10px 0;
+    /* font-weight: bold; */
+}
+/* 試聽按鈕 */
+.sample{
+    color: #ffa32b;
+    border: #ffa32b solid 3px;
+    border-radius:14px;
+    display: inline-block;
+    text-align: center;
+    background: rgba(255, 249, 224, 0.5);
+    width:90px;
+    margin: 0px 170px;
+    letter-spacing: 3px;
+    text-shadow: 0px 0px 3px #aaa;
+    box-shadow: 1px 1px 5px #aaa;
+    transition: 0.3s;
+}
+.sample i{
+    font-size: 25px;
+    vertical-align: -6px
+}
+.sample:hover{
+    color: rgba(255, 249, 224, 1);
+    background: #ffa32b;
+}
+
+/* 更多連結的標籤按鈕 */
+.more img{
+    position: absolute;
+    z-index: -1;
+    top: -35%;
+    right: -30%;
+    transform: perspective(100px) rotateY(0deg) rotateX(0deg) ;
+    transform-origin: 0 0;
+    
+}
+.more{
+    color: #fff9e0;
+    font-size: 15px;
+    vertical-align: -12px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-shadow:0px 0px 3px #aaa;
+    position: absolute;
+    right: 100px;
+    z-index: 1;
+    transition: 0.3s;
+}
+.more:hover{transform: perspective(100px) rotateY(-3deg) rotateX(0deg);}
+
+/* 下載點 */
+.download{
+    width: 1000px;
+    height: 450px;
+    text-align: center;
+    position: relative;
+    margin: auto;
+}
+.download p:first-child{
+    padding-top: 100px;
+}
+.download::before{
+    content: "";
+    display: block;
+    position: absolute;
+    /* left: 0;top: 0;right: 0;bottom: 0; */
+    z-index: -1;
+}
+.white{
+    color: #fff9e0;
+    margin: 10px 0;
+    font-size: 18px;
+    letter-spacing: 5px;    
+}
+.downloadLink img{
+    width: 200px;
+    margin: 20px 40px 0px;
+    box-shadow: 0 0px 0px #888;
+    border-radius: 7px;
+    transition: 0.3s;
+    }
+
+.downloadLink:hover img{
+    animation: rotate 1s;
+    }
+
+@keyframes rotate{
+    0%{transform: rotate(0)}
+    20%{transform: rotate(3deg)}
+    60%{transform: rotate(-3deg)}
+    100%{transform: rotate(0)}
+}
+
+/* 頁尾了~~ */
+footer{
+    height: 70px;
+    /* width: 960px; */
+    background: #002745;
+    overflow: hidden;
+    
+}
+.footerLogo{
+    width: 300px;
+    margin: 9px 0px 0 0px;
+}
+footer .white{
+    vertical-align: 100%;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+}
+footer a{
+    color: #fff9e0;
+    text-decoration: underline;
+    margin: 0 30px;
+}
+footer a:last-of-type{
+    margin: 0 60px 0 0;
+}
+.rate12{
+    margin: 0 50px;
+    width: 50px;
+    vertical-align: 50%;
+}
+.footerContent{
+    width: 960px;
+    margin: auto;
+}

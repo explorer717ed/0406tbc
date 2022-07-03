@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>《四月六日 未完待續》討論區</title>
+    <link rel="stylesheet" href="cssreset.css">
+    <link rel="stylesheet" href="common.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+    body{
+        background: url(img/desk.jpg) no-repeat fixed;
+        background-size: cover;
+        }
+
+    /* 選單已選的橘色背景 */
+    .menu::before{
+            content: "";
+            width: 85px;
+            height: 35px;
+            background: rgba(255,163,43,0.8);
+            position: absolute;
+            left: 0;top: 164px;
+            z-index: -1;
+        }
+        .menu::after{
+            content: "";
+            border-top: rgba(255,163,43,0.8) solid 17.5px;
+            border-left: rgba(255,163,43,0.8) solid 17.5px;
+            border-right: rgba(0,0,0,0) solid 17.5px;
+            border-bottom: rgba(0,0,0,0) solid 17.5px;
+            position: absolute;
+            left: 85px;top: 164px;
+            z-index: -1;
+        }
+    /* 第一屏背景 */
+    .forum{
+        width: 960px;
+        margin: auto;
+        position: relative;
+    }
+    .forumBg{
+        height: 750px;
+        background: url(img/paperCheckLightblue.png) no-repeat;
+        background-size: 100%;
+    }
+    .forumBg .title{
+        padding: 90px 0 0 0;
+        margin-left: 50%;
+    }
+    .title{
+        color: #114d7c;
+    }
+
+    /* 篩選 */
+    .filter{
+        padding: 120px 200px 30px 200px;
+    }
+    .filter p{
+        font-size: 20px;
+    }
+    .filterCat,.filterChar{
+        margin: 0 0 15px 15px;
+    }
+    .btn,.btnchecked{        
+        border-radius:14px;
+        display: inline-block;
+        text-align: center;
+        margin: 2px 0;
+        padding: 0 10px;
+        letter-spacing: 3px;
+        /* text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1) ; */
+        box-shadow: 1px 1px 5px #aaa;
+    }
+    .btn{
+        color: #114d7c;
+        border: #ffa32b solid 2px;
+        background: rgba(255, 249, 224, 0.5);
+        cursor: pointer;
+    }
+    .btnchecked{
+        color: rgba(255, 249, 224, 1);
+        border: #ffa32b solid 2px;
+        background: #ffa32b;
+        font-weight: bold;
+    }
+
+    /* 討論內容 */
+    .discussion{
+        background: #fff9e0;
+        width: 920px;
+        padding: 20px;
+    }
+    .discussion h3{
+        font-size: 24px;
+        margin-top: 10px;
+    }
+    .discuss{
+        border-bottom: #ffa32b 1px solid;
+        padding: 10px 0;
+        margin: 10px 0;
+        background: rgba(255, 255, 255, 0.3);
+    }
+    section img{
+        max-width: 50%;
+        max-height: 500px;
+        transition: 0.5s;
+    }
+    section img:hover{
+        max-width: 80%;
+        max-height: 650px;
+    }
+    .profile{
+        background: rgba(255, 255, 255, 0.3);
+        font-size: 20px;
+    }
+    .avatar{
+        background: url(img/avatar.png) no-repeat center;
+        /* background-size: 100%; */
+        width: 90px;
+        height: 90px;
+        border: rgba(255, 255, 255, 0.3) solid 5px;
+        float: left;
+    }
+    .proDetail{
+        width: 670px;
+        float: left;
+        height: 100px;
+    }
+    .icons{
+        width: 120px;
+        height: 100px;
+        float: left;
+        /* text-align: right; */
+        padding: 0 10px;
+        line-height: 2;
+    }
+    .icons i{
+        vertical-align: middle;
+        margin: 0 5px 0 10px;    
+    }
+    .discuss section{
+        padding: 10px;
+        font-size: 20px;
+        line-height: 2;
+        letter-spacing: 1px;
+    }
+    .discussion p::before{
+        content: "";
+        margin: 0 20px;
+    }
+    /* 文字輸入區 */
+    .write{
+        height: 100px;
+    }
+    textarea{
+        height: 53px;
+        width: 730px;
+        font-family: 微軟正黑體;
+        border: #ffa32b 2px dashed;
+        border-radius: 10px;
+        font-size: 18px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.6);
+    }
+    input[type=submit]{display: none;}
+    .write i{cursor: pointer;}
+
+    /* 登入框 */
+    .login{
+        height: 53px;
+        width: 730px;
+        border: #ffa32b 1px solid;
+        border-radius: 10px;
+        font-size: 18px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.6);
+        float: left;
+    }
+
+
+
+    /* 頁碼 */
+    .wrap{position: relative;}
+    .pagi{
+        margin: 0 auto 50px auto;
+        padding: 10px 0;
+        text-align: center;
+        width: 860px;
+        background:  url(img/pagiTape.png) no-repeat;
+        background-position: center;
+    }
+    .pagi a{
+        padding: 5px 10px;
+        color: #fff9e0;
+        background: rgba(255,249,224,0.2)
+    }
+    .pagi span{padding: 10px;}
+
+    /* 登入畫面 */
+    .blBg{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 11;
+    }
+    .loginScreen{
+        position: fixed;
+        width: 200px;
+        height: 300px;
+        top: 30%;
+        right: 0;
+        left: 0;
+        margin: auto;
+        background: #fff9e0;
+        text-align: center;
+        padding: 50px;
+    }
+    .loginScreen img{
+        margin: 10px 0 30px 0;
+        width: 200px;
+    }
+    .close{
+        background: #fff9e0;
+        padding: 10px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: #114d7c;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="blBg">
+        <div class="loginScreen">
+            <img src="img/qr.png" alt="">
+            <div>請使用<br>
+                四月六日 未完待續App<br>
+                掃描QR Code登入</div>
+            <a href="forum_article.html"><i class="material-icons close">close</i></a>
+        </div>
+    </div>
+    <header>
+        <a href="index.html"><img src="img/logoM.png" alt="Logo" class="logo"></a>
+        <nav>
+            <ul class="menu">
+                <li><a href="info.html">遊戲介紹</a></li>
+                <li><a href="media.html">校園畫展</a></li>
+                <li><a href="news.html">最新消息</a></li>
+                <li><a href="forum.html">討論區</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="forum">
+            <div class="forumBg">
+                <h2 class="title">討論區</h2>
+            </div>
+            <div class="filter">
+                <p>分類</p>
+                <div class="filterCat">
+                    <h6>主題：</h6>
+                    <a href="forum.html"><span class="btn">all</span></a> 
+                    <span class="btn">官方公告</span>
+                    <span class="btn">新手</span>
+                    <span class="btn">主線劇情</span>
+                    <span class="btn">期間限定</span>
+                </div>
+                <div class="filterChar">
+                    <h6>人物：</h6>
+                    <a href="forum.html"><span class="btn">all</span></a> 
+                    <span class="btn">Kun</span>
+                    <span class="btn">Nong</span>
+                    <span class="btn">Adam</span>
+                    <span class="btn">Justin</span>
+                    <span class="btn">Evan</span>
+                    <span class="btn">Theo</span>
+                    <span class="btn">L.ghost</span>
+                    <span class="btn">Boogie</span>
+                    <span class="btn">Azora</span>
+                </div>
+                <div class="filterChar">
+                    <h6>類型：</h6>
+                    <a href="forum.html"><span class="btn">all</span></a> 
+                    <span class="btn">精選</span>
+                </div>
+                <div class="filterChar">
+                    <h6>排序：</h6>
+                    <span class="btn">最新↓</span>
+                    <span class="btn">討論度↓</span>
+                </div>
+                
+            </div>
+            <div class="discussion">
+                <h3>情人節隱藏劇情</h3>
+                <span class="btn">期間限定</span>
+                <span class="btn">Evan</span>
+                <span class="btn">精選</span>
+                <div class="discuss">
+                    <div class="profile">
+                        <div class="avatar"></div>
+                        <div class="proDetail">
+                            <span class="name">717 (原PO)</span><br>
+                            <span class="datetime">1樓 2018-08-24 19:03</span>
+                        </div>
+                        <div class="icons">
+                            <i class="material-icons">remove_red_eye</i>200
+                            <i class="material-icons">chat</i>20
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <section>
+                        <p>成功在放學後約Evan在噴水池碰面，跟大家分享如何觸發關鍵選項～～～</p>
+                        <p>高二下學期這尷尬的季節轉學進入NPC高中二年E班的玩家，尚未適應環境就被分配至校慶活動籌辦小組，為四月份、NPC年度最盛大的校慶週規劃準備，籌備小組裡九位不同性格的同學學弟們、還有指導老師，妳是否能夠融入、並順利完成籌備任務？
+                        </p>
+                        <img src="img/snap12.png" alt="咖啡廳的約會">
+                        <p>透過手機內的訊息工具，營造出隨時與他互動的感覺與他交談的機會不僅限於會面。見不到面時，可以透過遊戲內的訊息工具與他交換各種不同的對話。通過互傳訊息，可以了解到會面中無從得知的他的想法，妳也可以把自己真實的一面傳達給他。如此一來，他會對妳是怎麼樣的人有更深一層的認識。透過這些無關緊要的閒聊，可以清楚「感受」透過這些無關緊要的閒聊可以清楚
+                        </p>
+                        <img src="img/photo53.JPG" alt="與Evan的約會">
+                        <p>他將對妳的視線有所反應透過移動妳的視線來對他表達妳的感情如果在會面與他談話當中出現的符號，請左右移動智慧型裝置看看。螢幕面向哪裡，代表妳的視線移到哪裡，請傳達妳最真實的心情讓他知道吧。
+                        </p>
+                    </section>
+                    
+                </div>
+                <div class="discuss">
+                    <div class="profile">
+                        <div class="avatar"></div>
+                        <div class="proDetail">
+                            <span class="name">7214</span><br>
+                            <span class="datetime">2樓 2019-01-07 08:24</span>
+                        </div>
+                        <!-- <div class="icons">
+                            <i class="material-icons">remove_red_eye</i>200
+                            <i class="material-icons">chat</i>20
+                        </div> -->
+                        <div class="clearfix"></div>
+                    </div>
+                    <section>
+                        <p>今天有大事發生~~~~~~四月六日未完待續全新原聲帶Evan個人EP《剛好的傷口》上線，作為開年首份重磅驚喜，制霸少年化身乖巧的甜味男孩，輕聲吟唱用音樂治癒你的寒冬!</p>
+                        <img src="img/imperfectLove.jpg" alt="剛好的傷口">
+                    </section>
+                </div>
+                <div class="avatar"></div>
+                <div class="write">
+                    <span class="name">新同學：</span><br>
+                    <div class="login">
+                        請先<a href="javascript:;">登入</a>後參與討論
+                    </div>
+                    <!-- <textarea name="" id="" cols="30" rows="6" placeholder="請輸入您的想法"></textarea>
+                    <input type="submit" value="" id="send">
+                    <i class="material-icons">attach_file</i>
+                    <label for="send">
+                        <i class="material-icons">send</i>
+                    </label>
+                    <div class="clearfix"></div> -->
+                </div>
+            </div>
+            <div class="pagi">
+                <div class="wrap">
+                    <!-- <img src="img/pagiTape.png" alt="頁碼"> -->
+                    <a href="javascript:;"><</a>
+                    <span>page 1</span>
+                    <a href="javascript:;">2</a>
+                    <a href="javascript:;">3</a>
+                    <a href="javascript:;">4</a>
+                    <a href="javascript:;">></a>
+                    <a href="javascript:;">>></a>
+                </div>
+            </div>
+        </div>
+        <div class="download">
+            <p class="white">「四月六日未完待續」戀愛遊戲全9集</p>
+            <img src="img/downloadSlogan.png" alt="找回情竇初開的酸甜滋味">
+            <p class="white">每集6話，組合售價360元</p>
+            <p class="white"> 第一集好評發售中！</p>
+            <a href="javascript:;" class="downloadLink">
+                <img src="img/appStore.svg" alt="AppleStore">
+            </a>
+            <a href="javascript:;" class="downloadLink">
+                <img src="img/playStore.svg" alt="PlayStore">
+            </a>
+        </div>
+    </main>
+    <footer>
+        <div class="footerContent">
+            <a href="index.html"><img src="img/logoMW.png" alt="LOGO" class="footerLogo"></a>
+            <span class="white">
+            <a href="javascript:;" class="">關於特別感謝</a>
+            <a href="javascript:;" class="">聯絡客服</a>
+            iOS|Android
+            </span>
+            <img src="img/rate12.png" alt="輔12級" class="rate12">
+        </div>
+    </footer>
+</body>
+</html>

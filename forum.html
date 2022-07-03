@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>《四月六日 未完待續》討論區</title>
+    <link rel="stylesheet" href="cssreset.css">
+    <link rel="stylesheet" href="common.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+    body{
+        background: url(img/desk.jpg) no-repeat fixed;
+        background-size: cover;
+        }
+
+    /* 選單已選的橘色背景 */
+    .menu::before{
+            content: "";
+            width: 85px;
+            height: 35px;
+            background: rgba(255,163,43,0.8);
+            position: absolute;
+            left: 0;top: 164px;
+            z-index: -1;
+        }
+        .menu::after{
+            content: "";
+            border-top: rgba(255,163,43,0.8) solid 17.5px;
+            border-left: rgba(255,163,43,0.8) solid 17.5px;
+            border-right: rgba(0,0,0,0) solid 17.5px;
+            border-bottom: rgba(0,0,0,0) solid 17.5px;
+            position: absolute;
+            left: 85px;top: 164px;
+            z-index: -1;
+        }
+    /* 第一屏背景 */
+    .forum{
+        width: 960px;
+        margin: auto;
+        position: relative;
+    }
+    .forumBg{
+        height: 750px;
+        background: url(img/paperCheckLightblue.png) no-repeat;
+        background-size: 100%;
+    }
+    .forumBg .title{
+        padding: 90px 0 0 0;
+        margin-left: 50%;
+    }
+    .title{
+        color: #114d7c;
+    }
+
+    /* 篩選 */
+    .filter{
+        padding: 120px 200px 30px 200px;
+    }
+    .filter p{
+        font-size: 20px;
+    }
+    .filterCat,.filterChar{
+        margin: 0 0 15px 15px;
+    }
+    .filter .btn,.filter .btnchecked{        border-radius:14px;
+        display: inline-block;
+        text-align: center;
+        margin: 2px 0;
+        padding: 0 10px;
+        letter-spacing: 3px;
+        /* text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1) ; */
+        box-shadow: 1px 1px 5px #aaa;
+    }
+    .filter .btn{
+        color: #114d7c;
+        border: #ffa32b solid 2px;
+        background: rgba(255, 249, 224, 0.5);
+        cursor: pointer;
+    }
+    .filter .btnchecked{
+        color: rgba(255, 249, 224, 1);
+        border: #ffa32b solid 2px;
+        background: #ffa32b;
+        font-weight: bold;
+    }
+
+    /* 精選文章 */
+    a{color: #114d7c;}
+    h3{
+        font-size: 24px;
+    }
+    .material-icons{
+        font-size: 16px;
+        vertical-align: middle;
+        /* letter-spacing: -3px; */
+    }
+    .featured i{margin: 0 2px;}
+    .featured article{
+        background: #fff9e0;
+        width: 440px;
+        height: 220px;
+        margin: 10px 10px 20px 10px;
+        padding: 10px;
+        position: relative;
+        float: left;
+        transition: 0.2s;
+    }
+    .featured img{
+        max-width: 200px;
+        max-height: 200px;
+    }
+    .featured section{
+        float: left;
+        width: 280px;
+        text-align: justify;
+    }
+    .imgMask{
+        width: 150px;
+        height: 150px;
+        float: left;
+        margin: 0 10px 10px 0;
+    }
+    .featured .author{clear: both;}
+    .icons{float: right;}
+    .featuredTag{
+        position: absolute;
+        top: -20px;
+        right: 10px;
+        background: rgba(255, 163, 43, 0.8);
+        width: 50px;
+        height: 30px;
+        text-align: center;
+        border-radius: 10px 10px 0 0;
+        color: #fff9e0;
+        text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2)
+    }
+
+    /* 綜合討論 */
+    .latest article{
+        background: #fff9e0;
+        margin: 10px;
+        padding: 10px;
+        /* position: relative; */
+        transition: 0.2s;
+    }
+    .latest h3, section{
+        width: 770px;
+        float: left;
+    }
+    .latest .author{
+        width: 150px;
+        float: left;
+        text-align: right;
+    }
+
+    article:hover{
+        box-shadow:2px 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    
+    /* 頁碼 */
+    .wrap{position: relative;}
+    .pagi{
+        margin: 0 auto 50px auto;
+        padding: 10px 0;
+        text-align: center;
+        width: 860px;
+        background:  url(img/pagiTape.png) no-repeat;
+        background-position: center;
+    }
+    .pagi a{
+        padding: 5px 10px;
+        color: #fff9e0;
+        background: rgba(255,249,224,0.2)
+    }
+    .pagi span{padding: 10px;}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="img/logoM.png" alt="Logo" class="logo"></a>
+        <nav>
+            <ul class="menu">
+                <li><a href="info.html">遊戲介紹</a></li>
+                <li><a href="media.html">校園畫展</a></li>
+                <li><a href="news.html">最新消息</a></li>
+                <li><a href="forum.html">討論區</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="forum">
+            <div class="forumBg">
+                <h2 class="title">討論區</h2>
+            </div>
+            <div class="filter">
+                <p>分類</p>
+                <div class="filterCat">
+                    <h6>主題：</h6>
+                    <span class="btnchecked">all</span>
+                    <span class="btn">官方公告</span>
+                    <span class="btn">新手</span>
+                    <span class="btn">主線劇情</span>
+                    <span class="btn">期間限定</span>
+                </div>
+                <div class="filterChar">
+                    <h6>人物：</h6>
+                    <span class="btnchecked">all</span>
+                    <span class="btn">Kun</span>
+                    <span class="btn">Nong</span>
+                    <span class="btn">Adam</span>
+                    <span class="btn">Justin</span>
+                    <span class="btn">Evan</span>
+                    <span class="btn">Theo</span>
+                    <span class="btn">L.ghost</span>
+                    <span class="btn">Boogie</span>
+                    <span class="btn">Azora</span>
+                </div>
+                <div class="filterChar">
+                    <h6>類型：</h6>
+                    <span class="btnchecked">all</span>
+                    <span class="btn">精選</span>
+                </div>
+                <div class="filterChar">
+                    <h6>排序：</h6>
+                    <span class="btnchecked">最新↓</span>
+                    <span class="btn">討論度↓</span>
+                </div>
+                
+            </div>
+            <div class="featured">
+                <h2 class="title">精選文章</h2>
+                <a href="forum_article.html"><article>
+                    <h3>情人節隱藏劇情</h3>
+                    <div class="imgMask" style=" background: url(img/snap13.png) center; background-size: 100%"></div>
+                    <section>成功在放學後約Evan在噴水池碰面，跟大家分享如何觸發關鍵選項～～～......</section>
+                    <div class="author">
+                        <span>2018-08-24 19:03 by 717</span>
+                        <div class="icons">
+                            <i class="material-icons">remove_red_eye</i>200
+                            <i class="material-icons">chat</i>20
+                        </div>
+                    </div>
+                    <div class="featuredTag">
+                        精選
+                    </div>
+                </article></a> 
+                <article>
+                    <h3>情人節隱藏劇情</h3>
+                    <div class="imgMask" style=" background: url(img/snap13.png) center; background-size: 100%"></div>
+                    <section>成功在放學後約Evan在噴水池碰面，跟大家分享如何觸發關鍵選項～～～......</section>
+                    <div class="author">
+                        <span>2018-08-24 19:03 by 717</span>
+                        <div class="icons">
+                            <i class="material-icons">remove_red_eye</i>200
+                            <i class="material-icons">chat</i>20
+                        </div>
+                    </div>
+                    <div class="featuredTag">
+                        精選
+                    </div>
+                </article>
+                <article>
+                    <h3>情人節隱藏劇情</h3>
+                    <div class="imgMask" style=" background: url(img/snap13.png) center; background-size: 100%"></div>
+                    <section>成功在放學後約Evan在噴水池碰面，跟大家分享如何觸發關鍵選項～～～......</section>
+                    <div class="author">
+                        <span>2018-08-24 19:03 by 717</span>
+                        <div class="icons">
+                            <i class="material-icons">remove_red_eye</i>200
+                            <i class="material-icons">chat</i>20
+                        </div>
+                    </div>
+                    <div class="featuredTag">
+                        精選
+                    </div>
+                </article>
+                <article>
+                    <h3>情人節隱藏劇情</h3>
+                    <div class="imgMask" style=" background: url(img/snap13.png) center; background-size: 100%"></div>
+                    <section>成功在放學後約Evan在噴水池碰面，跟大家分享如何觸發關鍵選項～～～......</section>
+                    <div class="author">
+                        <span>2018-08-24 19:03 by 717</span>
+                        <div class="icons">
+                            <i class="material-icons">remove_red_eye</i>200
+                            <i class="material-icons">chat</i>20
+                        </div>
+                    </div>
+                    <div class="featuredTag">
+                        精選
+                    </div>
+                </article>
+                <div class="clearfix"></div>
+            </div>
+            <div class="latest">
+                <h2 class="title">綜合討論</h2>
+                <article>
+                    <section>
+                        <h3>情人節隱藏劇情</h3>
+                        成功在放學後約Evan在噴水池碰面，跟大家分享如何觸發關鍵選項～～～
+                    </section>
+                    <div class="author">
+                        2018-08-24 19:03 <br>
+                         by 717 <br>
+                        <i class="material-icons">remove_red_eye</i>200
+                        <i class="material-icons">chat</i>20
+                    </div>
+                    <div class="clearfix"></div>
+                </article>
+                <article>
+                    <section>
+                        <h3>情人節隱藏劇情</h3>
+                        成功在放學後約Evan在噴水池碰面，跟大家分享如何觸發關鍵選項～～～
+                    </section>
+                    <div class="author">
+                        2018-08-24 19:03 <br>
+                         by 717 <br>
+                        <i class="material-icons">remove_red_eye</i>200
+                        <i class="material-icons">chat</i>20
+                    </div>
+                    <div class="clearfix"></div>
+                </article>
+                <article>
+                    <section>
+                        <h3>情人節隱藏劇情</h3>
+                        成功在放學後約Evan在噴水池碰面，跟大家分享如何觸發關鍵選項～～～
+                    </section>
+                    <div class="author">
+                        2018-08-24 19:03 <br>
+                         by 717 <br>
+                        <i class="material-icons">remove_red_eye</i>200
+                        <i class="material-icons">chat</i>20
+                    </div>
+                    <div class="clearfix"></div>
+                </article>
+            </div>
+            <div class="pagi">
+                <div class="wrap">
+                    <!-- <img src="img/pagiTape.png" alt="頁碼"> -->
+                    <a href="javascript:;"><</a>
+                    <span>page 1</span>
+                    <a href="javascript:;">2</a>
+                    <a href="javascript:;">3</a>
+                    <a href="javascript:;">4</a>
+                    <a href="javascript:;">></a>
+                    <a href="javascript:;">>></a>
+                </div>
+            </div>
+        </div>
+        <div class="download">
+            <p class="white">「四月六日未完待續」戀愛遊戲全9集</p>
+            <img src="img/downloadSlogan.png" alt="找回情竇初開的酸甜滋味">
+            <p class="white">每集6話，組合售價360元</p>
+            <p class="white"> 第一集好評發售中！</p>
+            <a href="javascript:;" class="downloadLink">
+                <img src="img/appStore.svg" alt="AppleStore">
+            </a>
+            <a href="javascript:;" class="downloadLink">
+                <img src="img/playStore.svg" alt="PlayStore">
+            </a>
+        </div>
+    </main>
+    <footer>
+        <div class="footerContent">
+            <a href="index.html"><img src="img/logoMW.png" alt="LOGO" class="footerLogo"></a>
+            <span class="white">
+            <a href="javascript:;" class="">關於特別感謝</a>
+            <a href="javascript:;" class="">聯絡客服</a>
+            iOS|Android
+            </span>
+            <img src="img/rate12.png" alt="輔12級" class="rate12">
+        </div>
+    </footer>
+</body>
+</html>
